@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Evade : MonoBehaviour
 {
-    [SerializeField] float evadeStrength = 10000f;
+    [SerializeField] float evadeStrength = 20000f;
     [SerializeField] float evadeCooldown = 3f;
     [SerializeField] float doubleClickTimeout = 0.3f;
 
+    [SerializeField] float evadeTrailTime = 0.2f;
+    [SerializeField] TrailRenderer frontLeft;
+    [SerializeField] TrailRenderer frontRight;
+    [SerializeField] TrailRenderer rearLeft;
+    [SerializeField] TrailRenderer rearRight;
+
     [SerializeField] TMPro.TextMeshProUGUI evadeCooldownCounter;
-    private string availableText = "Available";
+    [SerializeField] Image cooldownBackgroundImage;
 
     Rigidbody car;
 
@@ -25,6 +32,9 @@ public class Evade : MonoBehaviour
     private bool pressedTwiceD = false;
     private float currentDoubleClickTimeoutD;
 
+    private float currentEvadeTrailTimer;
+    private bool evadeEffectOver = true;
+
     private void Awake()
     {
         car = GetComponent<Rigidbody>();
@@ -32,6 +42,12 @@ public class Evade : MonoBehaviour
         currentEvadeCooldownTimer = evadeCooldown;
         currentDoubleClickTimeoutA = doubleClickTimeout;
         currentDoubleClickTimeoutD = doubleClickTimeout;
+
+        currentEvadeTrailTimer = evadeTrailTime;
+        frontLeft.emitting = false;
+        frontRight.emitting = false;
+        rearLeft.emitting = false;
+        rearRight.emitting = false;
     }
 
     void Update()
@@ -89,6 +105,8 @@ public class Evade : MonoBehaviour
             currentEvadeCooldownTimer -= Time.deltaTime;
             if (currentEvadeCooldownTimer <= 0)
             {
+                pressedTwiceA = false;
+                pressedTwiceD = false;
                 evadeAvailable = true;
                 currentEvadeCooldownTimer = evadeCooldown;
             }
@@ -96,13 +114,32 @@ public class Evade : MonoBehaviour
 
         if (evadeAvailable)
         {
-            availableText = "Available";
+            evadeCooldownCounter.enabled = false;
+            cooldownBackgroundImage.enabled = false;
         }
         else
         {
-            availableText = "Unavailable";
+            evadeCooldownCounter.enabled = true;
+            cooldownBackgroundImage.enabled = true;
         }
-        evadeCooldownCounter.text = "Evade " + availableText + ": " + currentEvadeCooldownTimer.ToString("0.00");
+        evadeCooldownCounter.text = currentEvadeCooldownTimer.ToString("0.0");
+
+        if (!evadeEffectOver)
+        {
+            currentEvadeTrailTimer -= Time.deltaTime;
+            if (currentEvadeTrailTimer <= 0)
+            {
+                evadeEffectOver = true;
+                currentEvadeTrailTimer = evadeTrailTime;
+            }
+        }
+        else
+        {
+            frontLeft.emitting = false;
+            frontRight.emitting = false;
+            rearLeft.emitting = false;
+            rearRight.emitting = false;
+        }
     }
 
     private void FixedUpdate()
@@ -129,5 +166,11 @@ public class Evade : MonoBehaviour
 
         pressedTwiceA = false;
         pressedTwiceD = false;
+
+        frontLeft.emitting = true;
+        frontRight.emitting = true;
+        rearLeft.emitting = true;
+        rearRight.emitting = true;
+        evadeEffectOver = false;
     }
 }
