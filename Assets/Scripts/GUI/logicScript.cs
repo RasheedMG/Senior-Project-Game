@@ -81,11 +81,11 @@ public class logicScript : MonoBehaviour
         Time.timeScale = 0;
         cameraController.GetComponent<CameraController>().enabled = false;
 
-        cameraController.enabled = cameraController.enabled ? false : true;
+        /*cameraController.enabled = cameraController.enabled ? false : true;
         Cursor.lockState = Cursor.lockState == CursorLockMode.Locked ? CursorLockMode.None : CursorLockMode.Locked;
         keybindMenu.alpha = keybindMenu.alpha > 0 ? 0 : 1;
         keybindMenu.blocksRaycasts = keybindMenu.blocksRaycasts ? false : true;
-        Time.timeScale = Time.timeScale > 0 ? 0 : 1;
+        Time.timeScale = Time.timeScale > 0 ? 0 : 1;*/
     }
 
     public void Resume()
