@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb61b251b810f34ea9bbe6f35ff5ce2, type: 3}
   m_Name: Double Speed
   m_EditorClassIdentifier: 
-  name: 
+  name: Double Speed
   CooldownTime: 10
   activeTime: 2
   icon: {fileID: 21300000, guid: b866b280b1b828a46b9778bde619ec62, type: 3}
