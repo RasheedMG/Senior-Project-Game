@@ -96,8 +96,9 @@ public class logicScript : MonoBehaviour
 
     public string getHP()
     {
-        int hp = player.GetComponent<Player>().health;
-        return hp.ToString();
+        //int hp = player.GetComponent<Player>().health;
+        //return hp.ToString();
+        return "";
     }
 
     /*public string getShield()
