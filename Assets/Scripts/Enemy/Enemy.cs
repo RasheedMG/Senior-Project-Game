@@ -1,54 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
-    // move speed
-    public float moveSpeed;
+    private NavMeshAgent enemy;
 
-    // enemy health (i.e., when they should die)
-    public int health;
+    public GameObject Player;
 
-    // the damage it can give to a player
-    public int damage;
+    public float enemyDistanceRun = 4.0f;
 
-    // the target object (e.g., player)
-    public Transform targetTransform;
-
-    public void Initialize(Transform target, float moveSpeed, int health)
+    // Start is called before the first frame update
+    void Start()
     {
-        this.targetTransform = target;
-        this.moveSpeed = moveSpeed;
-        this.health = health;
+        enemy = GetComponent<NavMeshAgent>();
+        
     }
 
-    void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        if (targetTransform != null)
+        float distance = Vector3.Distance(transform.position, Player.transform.position);
+
+
+
+        if (distance < enemyDistanceRun)
         {
-            // move enemy towards to the target (Player)
-            this.transform.position = Vector3.MoveTowards(this.transform.position, targetTransform.transform.position, Time.deltaTime * moveSpeed);
+            Vector3 dirToPlayer = transform.position - Player.transform.position;
+            Vector3 newPos = transform.position - dirToPlayer;
+
+            enemy.SetDestination(newPos);
         }
+
     }
-
-    // Takes damage given to the enemy by a Player
-    public void TakeDamage(int damage)
-    {
-        // updates enemy's health based on given damage
-        health -= damage;
-
-        // if the enemy health is equal or less than Zero, the enemy dies
-        if (health <= 0)
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
-    // Damage player's health
-    public void Attack(Player player)
-    {
-        player.health -= this.damage;
-        //Destroy(this.gameObject);
-    }   
 }
