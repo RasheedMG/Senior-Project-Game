@@ -37,6 +37,24 @@ public class Gun : MonoBehaviour
 
     }
 
+    public void shoot() 
+    {
+        if (Time.time > shootconfig.FireRate + LastShootTime) 
+        {
+
+            LastShootTime = Time.time;
+            ShootSystem.Play();
+            Vector3 shootDirection = ShootSystem.transform.forward
+                + new Vector3(Random.Range(-shootconfig.Spread.x, shootconfig.Spread.x),
+                              Random.Range(-shootconfig.Spread.y, shootconfig.Spread.y),
+                              Random.Range(-shootconfig.Spread.z, shootconfig.Spread.z));
+
+            shootDirection.Normalize();
+        }
+    }
+
+
+
     private TrailRenderer CreateTrail() 
     {
         GameObject instance = new GameObject("Bullet Trail");
