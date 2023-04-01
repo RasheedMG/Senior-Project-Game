@@ -13,7 +13,7 @@ public class SpeedBoost : MonoBehaviour
     [SerializeField] GameObject rightNitrous;
     [SerializeField] GameObject leftNitrous;
 
-    [SerializeField] TMPro.TextMeshProUGUI fuelCounter;
+    [SerializeField] Slider nitroSlider;
 
     public Rigidbody car;
 
@@ -35,10 +35,14 @@ public class SpeedBoost : MonoBehaviour
         currentFuel = maxFuel;
         currentRegenerationDelay = fuelRegenerationDelay;
 
-        rightNitrous.GetComponent<ParticleSystem>().playbackSpeed = 5;
-        leftNitrous.GetComponent<ParticleSystem>().playbackSpeed = 5;
+        var rightNitrousParticleSystem = rightNitrous.GetComponent<ParticleSystem>().main;
+        rightNitrousParticleSystem.simulationSpeed = 5f;
+        var leftNitrousParticleSystem = leftNitrous.GetComponent<ParticleSystem>().main;
+        leftNitrousParticleSystem.simulationSpeed = 5f;
         rightNitrous.SetActive(false);
         leftNitrous.SetActive(false);
+
+        nitroSlider.maxValue = maxFuel;
     }
 
     void Update()
@@ -86,7 +90,7 @@ public class SpeedBoost : MonoBehaviour
             }
         }
 
-        fuelCounter.text = "Fuel: " + currentFuel.ToString("0.00");
+        nitroSlider.value = currentFuel;
     }
 
     private void FixedUpdate()

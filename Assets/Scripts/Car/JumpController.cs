@@ -47,12 +47,12 @@ public class JumpController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["Jump"]))
         {
             pressedJump = true;
         }
         
-        if (Input.GetButtonUp("Jump"))
+        if (Input.GetKeyUp(KeybindManager.MyInstance.Keybinds["Jump"]))
         {
             releasedJump = true;
         }
@@ -98,6 +98,7 @@ public class JumpController : MonoBehaviour
 
         if (carIsGrounded)
         {
+            pressedJump = false;
             jumpsAvailable = maxNumberOfJumps;
             jumpResetTimeoutExceeded = false;
         }
@@ -107,6 +108,8 @@ public class JumpController : MonoBehaviour
     {
         car.useGravity = false;
         car.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        //Alternative Jump Function:
+        //car.velocity = new Vector3(car.velocity.x, 7f, car.velocity.z);
         pressedJump = false;
         startJumpTimer = true;
         carIsGrounded = false;
