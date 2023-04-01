@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class itemLogic : MonoBehaviour
 {
     public logicScript logic;
-    public string cube;
+    public string itemName;
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<logicScript>();
@@ -23,7 +24,7 @@ public class itemLogic : MonoBehaviour
         if (other.gameObject.layer==3)
         {
             Destroy(this.gameObject);
-            logic.itemPickUp("cube");
+            logic.itemPickUp(itemName);
         }
     }
 

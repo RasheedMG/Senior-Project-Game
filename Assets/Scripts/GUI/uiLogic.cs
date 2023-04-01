@@ -8,11 +8,12 @@ using System;
 public class uiLogic : MonoBehaviour
 {
     public GameObject inv;
-
+    public logicScript logicScript;
     void Start()
     {
-
-}
+        inv.SetActive(false);
+        logicScript = GameObject.Find("Logic Manager").GetComponent<logicScript>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -20,9 +21,14 @@ public class uiLogic : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             if (inv.activeSelf == false)
+            {
                 inv.SetActive(true);
-            else
+                logicScript.Pause();
+            }
+            else { 
                 inv.SetActive(false);
+                logicScript.Resume();
+            }
 
             
         }
