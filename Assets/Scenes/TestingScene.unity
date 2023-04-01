@@ -3130,7 +3130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27dbcc26667590b4fba77e77718ac520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability1: {fileID: 11400000, guid: 22eae82e749c46440ab3d60a6ccb4b4f, type: 2}
+  ability1: {fileID: 11400000, guid: 070680adeaf8e714eb0b5c2560727439, type: 2}
   ability2: {fileID: 11400000, guid: 064f7dcdda633b846be960f387128123, type: 2}
   ability1CooldownCounter: {fileID: 1000809266}
   ability2CooldownCounter: {fileID: 2038369657}
@@ -16757,6 +16757,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 584242839}
     m_Modifications:
+    - target: {fileID: 1962576821819942971, guid: bee95b46f44c5e3469dea4f1669e5f68, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2984914392101811154, guid: bee95b46f44c5e3469dea4f1669e5f68, type: 3}
       propertyPath: m_Name
       value: Right Brakelight
@@ -16805,7 +16809,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: bee95b46f44c5e3469dea4f1669e5f68, type: 3}
 --- !u!224 &8092329722612877077 stripped
 RectTransform:
