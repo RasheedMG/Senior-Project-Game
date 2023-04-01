@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SpeedBoost : MonoBehaviour
 {
     [SerializeField] float boostStrength = 5000f;
-    [SerializeField] float maxFuel = 5f;
+    [SerializeField] public float maxFuel = 5f;
     [SerializeField] float fuelRegenerationRate = 2f;
     [SerializeField] float fuelRegenerationDelay = 2f;
 
@@ -21,7 +21,7 @@ public class SpeedBoost : MonoBehaviour
     private bool releasedBoost = false;
 
     private bool boostersEnabled = false;
-    private float currentFuel;
+    public float currentFuel;
 
     private bool startRegenerationDelay = false;
     private float currentRegenerationDelay;

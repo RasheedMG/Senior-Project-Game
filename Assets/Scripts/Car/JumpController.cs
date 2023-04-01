@@ -11,8 +11,8 @@ public class JumpController : MonoBehaviour
 
     [SerializeField] float jumpForce = 7000f;
     [SerializeField] float maxJumpTime = 0.2f;
-    [SerializeField] int maxNumberOfJumps = 1;
-    [SerializeField] float jumpResetTimeout = 5f;
+    [SerializeField] public int maxNumberOfJumps = 1;
+    [SerializeField] float jumpResetTimeout = 2f;
 
     [SerializeField] Transform centerOfMass;
 
