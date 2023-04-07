@@ -1,12 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class KeybindManager : MonoBehaviour
 {
-    private GameObject[] keybindButtons;
+    [SerializeField] CameraController cameraController;
+
+    CanvasGroup keybindMenu;
 
     private static KeybindManager instance;
 
@@ -22,64 +21,22 @@ public class KeybindManager : MonoBehaviour
         }
     }
 
-    public Dictionary<string, KeyCode> Keybinds { get; private set; }
-
-    public Dictionary<string, KeyCode> ActionBinds { get; private set; }
-
-    private string bindName;
-
     private void Awake()
     {
-        keybindButtons = GameObject.FindGameObjectsWithTag("Keybind");
+        keybindMenu = GetComponent<CanvasGroup>();
     }
 
-    private void Start()
+    public void ToggleMenuVisibility()
     {
-
-        Keybinds = new Dictionary<string, KeyCode>();
-        ActionBinds = new Dictionary<string, KeyCode>();
-
-        BindKey("Forward", KeyCode.W);
-        BindKey("Backwards", KeyCode.S);
-        BindKey("Left", KeyCode.A);
-        BindKey("Right", KeyCode.D);
-        BindKey("Jump", KeyCode.Space);
-        BindKey("Brake", KeyCode.LeftControl);
-
-        BindKey("ACT Nitro", KeyCode.LeftShift);
-        BindKey("ACT Ability 1", KeyCode.Q);
-        BindKey("ACT Ability 2", KeyCode.E);
+        cameraController.enabled = cameraController.enabled ? false : true;
+        Cursor.lockState = Cursor.lockState == CursorLockMode.Locked ? CursorLockMode.None : CursorLockMode.Locked;
+        keybindMenu.alpha = keybindMenu.alpha > 0 ? 0 : 1;
+        keybindMenu.blocksRaycasts = keybindMenu.blocksRaycasts ? false : true;
+        Time.timeScale = Time.timeScale > 0 ? 0 : 1;
     }
 
-    public void BindKey(string key, KeyCode keyBind)
+    public void OnPauseMenu()
     {
-        Dictionary<string, KeyCode> currentDictionary = Keybinds;
-
-        if (key.Contains("ACT"))
-        {
-            currentDictionary = ActionBinds;
-        }
-
-        if (!currentDictionary.ContainsValue(keyBind))
-        {
-            currentDictionary.Add(key, keyBind);
-            UpdateKeyText(key, keyBind);
-        }
-        else if (currentDictionary.ContainsValue(keyBind))
-        {
-            string existingKey = currentDictionary.FirstOrDefault(x => x.Value == keyBind).Key;
-            currentDictionary[existingKey] = KeyCode.None;
-            UpdateKeyText(key, KeyCode.None);
-        }
-
-        currentDictionary[key] = keyBind;
-        UpdateKeyText(key, keyBind);
-        bindName = string.Empty;
-    }
-
-    public void UpdateKeyText(string key, KeyCode code)
-    {
-        TMPro.TextMeshProUGUI tmp = Array.Find(keybindButtons, x => x.name == key).GetComponentInChildren<TMPro.TextMeshProUGUI>();
-        tmp.text = code.ToString();
+        ToggleMenuVisibility();
     }
 }

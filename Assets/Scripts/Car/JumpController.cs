@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class JumpController : MonoBehaviour
 {
@@ -47,16 +48,6 @@ public class JumpController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["Jump"]))
-        {
-            pressedJump = true;
-        }
-        
-        if (Input.GetKeyUp(KeybindManager.MyInstance.Keybinds["Jump"]))
-        {
-            releasedJump = true;
-        }
-
         if (startJumpTimer)
         {
             currentJumpTimer -= Time.deltaTime;
@@ -122,5 +113,11 @@ public class JumpController : MonoBehaviour
         currentJumpTimer = maxJumpTime;
         startJumpTimer = false;
         startjumpResetTimer = true;
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.started) { pressedJump = true; }
+        else if (context.canceled) { releasedJump = true; }
     }
 }

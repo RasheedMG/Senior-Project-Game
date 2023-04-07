@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class SpeedBoost : MonoBehaviour
 {
@@ -27,6 +26,7 @@ public class SpeedBoost : MonoBehaviour
     private float currentRegenerationDelay;
     private bool startRegenerating = false;
 
+    private InputActionReference inputAction;
 
     private void Awake()
     {
@@ -47,16 +47,6 @@ public class SpeedBoost : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Boost"))
-        {
-            pressedBoost = true;
-        }
-
-        if (Input.GetButtonUp("Boost"))
-        {
-            releasedBoost = true;
-        }
-
         if (boostersEnabled)
         {
             startRegenerating = false;
@@ -108,6 +98,12 @@ public class SpeedBoost : MonoBehaviour
             StopBoosters();
             startRegenerationDelay = true;
         }
+    }
+
+    public void OnNitro(InputAction.CallbackContext context)
+    {
+        if (context.started) { pressedBoost = true; }
+        else if (context.canceled) { releasedBoost = true; }
     }
 
     private void StartBoosters()
