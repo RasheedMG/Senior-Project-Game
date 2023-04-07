@@ -5,7 +5,8 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
 
-    public GameObject theBullet;
+    [SerializeField] private GameObject theBullet;
+    [SerializeField] private GameObject BulletVFX;
     public Transform barrelEnd;
 
     public int bulletSpeed;
@@ -34,9 +35,12 @@ public class Shooting : MonoBehaviour
     }
     void Shoot()
     {
-        var bullet = Instantiate(theBullet, barrelEnd.position, barrelEnd.rotation);
+        var bullet =Instantiate(theBullet, barrelEnd.position, barrelEnd.rotation);
+        var bulletvfx = Instantiate(BulletVFX, barrelEnd.position, barrelEnd.rotation);
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletSpeed;
-
         Destroy(bullet, despawnTime);
+        Destroy(bulletvfx, 1f);
+
+
     }
 }
