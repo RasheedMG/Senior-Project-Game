@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class AbilityHolder : MonoBehaviour
 {
@@ -36,6 +35,9 @@ public class AbilityHolder : MonoBehaviour
     AbilityState ability1State = AbilityState.ready;
     AbilityState ability2State = AbilityState.ready;
 
+    private bool ability1Pressed = false;
+    private bool ability2Pressed = false;
+
     private void Update()
     {
         // vvv TEMPORARILY HERE vvv
@@ -47,7 +49,7 @@ public class AbilityHolder : MonoBehaviour
             case AbilityState.ready:
                 ability1CooldownCounter.enabled = false;
                 ability1CooldownBackgroundImage.enabled = false;
-                if (Input.GetButton("Ability 1"))
+                if (ability1Pressed)
                 {
                     ability1.Activate(gameObject);
                     ability1State = AbilityState.active;
@@ -89,7 +91,7 @@ public class AbilityHolder : MonoBehaviour
             case AbilityState.ready:
                 ability2CooldownCounter.enabled = false;
                 ability2CooldownBackgroundImage.enabled = false;
-                if (Input.GetButton("Ability 2"))
+                if (ability2Pressed)
                 {
                     ability2.Activate(gameObject);
                     ability2State = AbilityState.active;
@@ -150,4 +152,14 @@ public class AbilityHolder : MonoBehaviour
         }
     }
 
+    public void OnAbility1(InputAction.CallbackContext context)
+    {
+        if (context.started) { ability1Pressed = true; }
+        else if (context.canceled) { ability1Pressed = false; }
+    }
+    public void OnAbility2(InputAction.CallbackContext context)
+    {
+        if (context.started) { ability2Pressed = true; }
+        else if (context.canceled) { ability2Pressed = false; }
+    }
 }

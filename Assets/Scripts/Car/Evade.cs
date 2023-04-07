@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class Evade : MonoBehaviour
 {
@@ -52,34 +51,6 @@ public class Evade : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            if (pressedOnceA)
-            {
-                pressedOnceA = false;
-                pressedTwiceA = true;
-            }
-            else
-            {
-                pressedOnceA = true;
-            }
-            currentDoubleClickTimeoutA = doubleClickTimeout;
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (pressedOnceD)
-            {
-                pressedOnceD = false;
-                pressedTwiceD = true;
-            }
-            else
-            {
-                pressedOnceD = true;
-            }
-            currentDoubleClickTimeoutD = doubleClickTimeout;
-        }
-
         if (pressedOnceA)
         {
             currentDoubleClickTimeoutA -= Time.deltaTime;
@@ -172,5 +143,40 @@ public class Evade : MonoBehaviour
         rearLeft.emitting = true;
         rearRight.emitting = true;
         evadeEffectOver = false;
+    }
+
+    public void OnEvade(InputAction.CallbackContext context)
+    {
+        //float movement = context.ReadValue<Vector2>().x;
+        float movement = context.ReadValue<float>();
+        if (context.performed)
+        {
+            if (movement < 0)
+            {
+                if (pressedOnceA)
+                {
+                    pressedOnceA = false;
+                    pressedTwiceA = true;
+                }
+                else
+                {
+                    pressedOnceA = true;
+                }
+                currentDoubleClickTimeoutA = doubleClickTimeout;
+            }
+            else if (movement > 0)
+            {
+                if (pressedOnceD)
+                {
+                    pressedOnceD = false;
+                    pressedTwiceD = true;
+                }
+                else
+                {
+                    pressedOnceD = true;
+                }
+                currentDoubleClickTimeoutD = doubleClickTimeout;
+            }
+        }
     }
 }

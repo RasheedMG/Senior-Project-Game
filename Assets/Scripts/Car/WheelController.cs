@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class WheelController : MonoBehaviour
 {
@@ -20,13 +18,18 @@ public class WheelController : MonoBehaviour
     [SerializeField] GameObject rightBrakelight;
     [SerializeField] GameObject leftBrakelight;
 
+    [SerializeField] Material BrakelightMaterial;
+
     [SerializeField] TMPro.TextMeshProUGUI speedometer;
 
-    public Rigidbody car;
+    [SerializeField] float wheelRotationSmoothingFactor = 0.5f;
 
-    public float acceleration = 500f;
-    public float breakingForce = 30000f;
-    public float maxTurnAngle = 30f;
+    [SerializeField] public Rigidbody car;
+
+    [SerializeField] public float acceleration = 500f;
+    [SerializeField] public float breakingForce = 30000f;
+    [SerializeField] public float maxTurnAngle = 30f;
+    [SerializeField] public float topSpeed = 150f;
 
     public const float VELOCITY_TO_KMPH_CONVERSION_RATE = 3.6f;
     public float kmph = 0;
@@ -36,6 +39,8 @@ public class WheelController : MonoBehaviour
     private float currentTurnAngle = 0f;
 
     private bool isReversing;
+
+    Vector2 movement;
 
     private void Awake()
     {
@@ -53,30 +58,15 @@ public class WheelController : MonoBehaviour
     void FixedUpdate()
     {
         // Get forward/reverse acceleration from the vertical axis (W and S keys)
-        if (Input.GetKey(KeybindManager.MyInstance.Keybinds["Forward"]))
+        if (movement.y > 0)
         {
-            currentAcceleration = acceleration;
-            DisableBrakelightsEffect();
+            currentAcceleration = kmph > topSpeed ? movement.y : acceleration * movement.y;
         }
-        else if (Input.GetKey(KeybindManager.MyInstance.Keybinds["Backwards"]))
+        else if (movement.y < 0)
         {
-            currentAcceleration = -acceleration;
-            if (isReversing)
-            {
-                EnableBrakelightsEffect();
-            }
+            currentAcceleration = acceleration * movement.y;
         }
-        else
-        {
-            currentAcceleration = 0;
-        }
-        //currentAcceleration = acceleration * Input.GetAxis("Vertical");
-
-        // If we're pressing space, give currentBreakingForce a value
-        if (Input.GetKey(KeybindManager.MyInstance.Keybinds["Brake"]))
-            currentBreakForce = breakingForce;
-        else
-            currentBreakForce = 0f;
+        else currentAcceleration = 0;
 
         // Apply acceleration to front wheels
         frontRight.motorTorque = currentAcceleration;
@@ -91,18 +81,8 @@ public class WheelController : MonoBehaviour
         rearLeft.brakeTorque = currentBreakForce;
 
         // Take care of the steering
-        if (Input.GetKey(KeybindManager.MyInstance.Keybinds["Left"]))
-        {
-            currentTurnAngle = -maxTurnAngle;
-        }
-        else if (Input.GetKey(KeybindManager.MyInstance.Keybinds["Right"]))
-        {
-            currentTurnAngle = maxTurnAngle;
-        }
-        else
-        {
-            currentTurnAngle = 0;
-        }
+        currentTurnAngle = maxTurnAngle * movement.x;
+
         //currentTurnAngle = maxTurnAngle * Input.GetAxis("Horizontal");
         frontRight.steerAngle = currentTurnAngle;
         frontLeft.steerAngle = currentTurnAngle;
@@ -114,14 +94,18 @@ public class WheelController : MonoBehaviour
 
         kmph = car.velocity.magnitude * VELOCITY_TO_KMPH_CONVERSION_RATE;
 
-        if (Vector3.Dot(transform.forward, car.velocity) < 0)
+        if (movement.y < 0 && Vector3.Dot(transform.forward, car.velocity) < 0)
         {
             isReversing = true;
         }
         else
         {
             isReversing = false;
+            DisableReverseLight();
         }
+
+        if (isReversing) { EnableReverseLight(); }
+        else { DisableReverseLight(); }
     }
 
     void UpdateWheel(WheelCollider col, Transform trans)
@@ -132,18 +116,49 @@ public class WheelController : MonoBehaviour
         col.GetWorldPose(out position, out rotation);
 
         trans.position = position;
-        trans.rotation = rotation;
+        //trans.rotation = rotation; < Old code, turned wheels instantly
+        trans.rotation = Quaternion.Lerp(trans.rotation, rotation, wheelRotationSmoothingFactor);
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        movement = context.ReadValue<Vector2>();
+    }
+
+    public void OnBrake(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            currentBreakForce = breakingForce;
+            EnableBrakelightsEffect();
+        }
+        else if (context.canceled)
+        {
+            currentBreakForce = 0f;
+            DisableBrakelightsEffect();
+        }
     }
 
     private void EnableBrakelightsEffect()
     {
         rightBrakelight.SetActive(true);
         leftBrakelight.SetActive(true);
+        BrakelightMaterial.SetColor("_EmissionColor", Color.red);
     }
 
     private void DisableBrakelightsEffect()
     {
         rightBrakelight.SetActive(false);
         leftBrakelight.SetActive(false);
+    }
+
+    private void EnableReverseLight()
+    {
+        BrakelightMaterial.SetColor("_EmissionColor", Color.white);
+    }
+
+    private void DisableReverseLight()
+    {
+        BrakelightMaterial.SetColor("_EmissionColor", Color.red);
     }
 }
