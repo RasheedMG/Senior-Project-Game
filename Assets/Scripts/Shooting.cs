@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Shooting : MonoBehaviour
 {
@@ -15,9 +15,11 @@ public class Shooting : MonoBehaviour
     public bool shootAble = true;
     public float waitBeforeNextShot = 0.25f;
 
+    private bool isShooting = false;
+
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (isShooting)
         {
             if (shootAble)
             {
@@ -42,5 +44,17 @@ public class Shooting : MonoBehaviour
         Destroy(bulletvfx, 1f);
 
 
+    }
+
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            isShooting = true;
+        }
+        else if (context.canceled)
+        {
+            isShooting = false;
+        }
     }
 }
