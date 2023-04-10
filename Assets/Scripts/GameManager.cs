@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
 
     public GameState State;
 
-    public static event Action<GameState> OnGameStateChanged;
+    public static event Action<GameState> OnBeforeStateChanged;
+    public static event Action<GameState> OnAfterStateChanged;
 
     private void Awake()
     {
@@ -23,12 +24,12 @@ public class GameManager : MonoBehaviour
     public void LoadLevel(string SceneName)
     {
         SceneManager.LoadScene(SceneName);
-        // spawn player
-        // spawn enemies
     }
 
     public void UpdateGameState(GameState newState)
     {
+        OnBeforeStateChanged?.Invoke(newState);
+
         State = newState;
         switch (newState)
         {
@@ -42,10 +43,13 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Defeat:
                 break;
+            case GameState.Quit:
+                Application.Quit();
+                break;
             default:
                 break;
         }
-        OnGameStateChanged?.Invoke(newState);
+        OnAfterStateChanged?.Invoke(newState);
     }
 }
 
@@ -55,5 +59,6 @@ public enum GameState
     NewGame,
     LoadGame,
     Victory,
-    Defeat
+    Defeat,
+    Quit
 }
