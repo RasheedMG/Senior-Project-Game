@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 public class settingsOpen : MonoBehaviour, IPointerClickHandler, IPointerExitHandler
 {
 
-    public GameObject mainMenu;
+    //public GameObject mainMenu;
     public GameObject settingsMenu;
     public GameObject original;
     void Start()
@@ -21,7 +21,7 @@ public class settingsOpen : MonoBehaviour, IPointerClickHandler, IPointerExitHan
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        mainMenu.SetActive(false);
+        //mainMenu.SetActive(false);
         settingsMenu.SetActive(true);
         this.gameObject.SetActive(false);
         original.SetActive(true);

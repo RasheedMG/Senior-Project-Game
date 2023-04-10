@@ -35,9 +35,14 @@ public class CameraController : MonoBehaviour
     private Vector3 velocity;
     private Vector2 movement;
 
-    private void Start()
+    private void OnEnable()
     {
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void OnDisable()
+    {
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void Update()
