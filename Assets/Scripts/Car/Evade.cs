@@ -123,6 +123,7 @@ public class Evade : MonoBehaviour
 
     private void ExecuteEvade()
     {
+        AudioSystem.Instance.PlayEffect("Evade");
         Vector3 direction = transform.right;
         if (pressedTwiceA)
         {

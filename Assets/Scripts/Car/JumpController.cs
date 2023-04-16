@@ -104,6 +104,7 @@ public class JumpController : MonoBehaviour
         pressedJump = false;
         startJumpTimer = true;
         carIsGrounded = false;
+        AudioSystem.Instance.PlayEffect("Jump");
     }
 
     private void StopJump()

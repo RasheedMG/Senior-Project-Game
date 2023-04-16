@@ -27,6 +27,6 @@ public class textLogic2 : MonoBehaviour, IPointerExitHandler, IPointerClickHandl
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("TestingScene");
     }
 }

@@ -42,8 +42,7 @@ public class Shooting : MonoBehaviour
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletSpeed;
         Destroy(bullet, despawnTime);
         Destroy(bulletvfx, 1f);
-
-
+        AudioSystem.Instance.PlayEffect("Fire Machine Gun");
     }
 
     public void OnShoot(InputAction.CallbackContext context)

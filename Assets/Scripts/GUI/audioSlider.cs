@@ -1,21 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class audioSlider : MonoBehaviour
 {
-    public TextMeshProUGUI sliderText;
-    public Slider slider;
-    void Start()
+    private enum AudioChannel
     {
-
+        masterVolume,
+        musicVolume,
+        environmentVolume,
+        effectsVolume
     }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private AudioChannel audioChannel;
+
+    private TextMeshProUGUI _sliderText;
+    private Slider _slider;
+
+    private void OnEnable()
     {
-        sliderText.text = slider.value.ToString();
+        // This updates the slider values based on what was saved in previous sessions (in playerprefs)
+        float volume = VolumeController.Instance.GetVolume(audioChannel.ToString());
+        SetSliderValue(volume + 80);
+        UpdateText(volume + 80);
     }
+
+    private void SetSliderValue(float value)
+    {
+        value = Mathf.Clamp(value, 0, 100);
+        _slider.SetValueWithoutNotify(value);
+    }
+
+    public void UpdateVolume()
+    {
+        float volume = _slider.value; 
+        VolumeController.Instance.SetVolume(volume, audioChannel.ToString());
+        UpdateText(volume);
+    }
+
+    private void UpdateText(float value) => _sliderText.text = value.ToString();
 }

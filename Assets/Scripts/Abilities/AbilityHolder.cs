@@ -54,6 +54,7 @@ public class AbilityHolder : MonoBehaviour
                     ability1.Activate(gameObject);
                     ability1State = AbilityState.active;
                     ability1ActiveTime = ability1.activeTime;
+                    AudioSystem.Instance.PlayEffect(ability1.soundEffect);
                 }
                 break;
             case AbilityState.active:
@@ -67,7 +68,7 @@ public class AbilityHolder : MonoBehaviour
                 {
                     ability1.Deactivate(gameObject);
                     ability1State = AbilityState.cooldown;
-                    ability1CooldownTime = ability1.CooldownTime;
+                    ability1CooldownTime = ability1.cooldownTime;
                 }
                 break;
             case AbilityState.cooldown:
@@ -96,6 +97,7 @@ public class AbilityHolder : MonoBehaviour
                     ability2.Activate(gameObject);
                     ability2State = AbilityState.active;
                     ability2ActiveTime = ability2.activeTime;
+                    AudioSystem.Instance.PlayEffect(ability2.soundEffect);
                 }
                 break;
             case AbilityState.active:
@@ -109,7 +111,7 @@ public class AbilityHolder : MonoBehaviour
                 {
                     ability2.Deactivate(gameObject);
                     ability2State = AbilityState.cooldown;
-                    ability2CooldownTime = ability2.CooldownTime;
+                    ability2CooldownTime = ability2.cooldownTime;
                 }
                 break;
             case AbilityState.cooldown:
@@ -154,12 +156,34 @@ public class AbilityHolder : MonoBehaviour
 
     public void OnAbility1(InputAction.CallbackContext context)
     {
-        if (context.started) { ability1Pressed = true; }
-        else if (context.canceled) { ability1Pressed = false; }
+        if (context.started)
+        {
+            ability1Pressed = true;
+
+            if (ability1State == AbilityState.cooldown)
+            {
+                AudioSystem.Instance.PlayEffect("Ability On Cooldown");
+            }
+        }
+        else if (context.canceled)
+        {
+            ability1Pressed = false;
+        }
     }
     public void OnAbility2(InputAction.CallbackContext context)
     {
-        if (context.started) { ability2Pressed = true; }
-        else if (context.canceled) { ability2Pressed = false; }
+        if (context.started)
+        {
+            ability2Pressed = true;
+
+            if (ability2State == AbilityState.cooldown)
+            {
+                AudioSystem.Instance.PlayEffect("Ability On Cooldown");
+            }
+        }
+        else if (context.canceled)
+        {
+            ability2Pressed = false;
+        }
     }
 }
