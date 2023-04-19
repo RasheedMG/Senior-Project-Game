@@ -74,7 +74,7 @@ public class MenuOpen : MonoBehaviour, IPointerClickHandler, IPointerExitHandler
         if (gameObject.name.Equals("Quit Outline"))
             Application.Quit();
 
-        mainMenu.SetActive(false);
+        //mainMenu.SetActive(false);
         subMenu.SetActive(true);
         this.gameObject.SetActive(false);
         original.SetActive(true);
