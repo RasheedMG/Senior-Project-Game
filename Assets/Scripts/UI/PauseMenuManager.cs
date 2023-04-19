@@ -5,6 +5,8 @@ public class PauseMenuManager : MonoBehaviour
 {
     [SerializeField] CameraController cameraController;
 
+    [SerializeField] private AbilitySelection abilitySelection;
+    
     CanvasGroup pauseMenu;
 
     private static PauseMenuManager instance;
@@ -29,7 +31,6 @@ public class PauseMenuManager : MonoBehaviour
     public void ToggleMenuVisibility()
     {
         cameraController.enabled = cameraController.enabled ? false : true;
-        //Cursor.lockState = Cursor.lockState == CursorLockMode.Locked ? CursorLockMode.None : CursorLockMode.Locked;
         pauseMenu.alpha = pauseMenu.alpha > 0 ? 0 : 1;
         pauseMenu.blocksRaycasts = pauseMenu.blocksRaycasts ? false : true;
         Time.timeScale = Time.timeScale > 0 ? 0 : 1;
@@ -44,5 +45,10 @@ public class PauseMenuManager : MonoBehaviour
     public void OnPauseMenu()
     {
         ToggleMenuVisibility();
+    }
+    
+    public void OnPickAbilitiesButtonClick()
+    {
+        abilitySelection.ShowAbilitySelectionUI();
     }
 }

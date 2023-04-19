@@ -11,6 +11,8 @@ public class TimeWarpAbility : Ability
 
     public override void Activate(GameObject parent)
     {
+        IsActive = true;
+        
         Time.timeScale *= TimeSlowMultiplier;
 
         mainMixer.SetFloat("pitch", TimeSlowMultiplier);
@@ -23,5 +25,7 @@ public class TimeWarpAbility : Ability
         Time.timeScale *= inverseTimeSlowMultiplier;
         
         mainMixer.SetFloat("pitch", 1f);
+
+        IsActive = false;
     }
 }

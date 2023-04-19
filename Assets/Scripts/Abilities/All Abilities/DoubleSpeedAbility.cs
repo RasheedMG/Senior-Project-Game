@@ -9,6 +9,8 @@ public class DoubleSpeedAbility : Ability
 
     public override void Activate(GameObject parent)
     {
+        IsActive = true;
+        
         //double speed
         var carWheelController = parent.GetComponent<WheelController>();
         carWheelController.acceleration *= accelerationMultiplier;
@@ -19,5 +21,7 @@ public class DoubleSpeedAbility : Ability
         //halve speed
         var carWheelController = parent.GetComponent<WheelController>();
         carWheelController.acceleration *= (1/accelerationMultiplier);
+        
+        IsActive = false;
     }
 }

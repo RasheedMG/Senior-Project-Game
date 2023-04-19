@@ -1630,8 +1630,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bddc5691a2858624cbfe0ab8aefff9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderText: {fileID: 6784427600439631451}
-  slider: {fileID: 6784427600833363340}
+  audioChannel: 1
+  _sliderText: {fileID: 6784427600439631451}
+  _slider: {fileID: 6784427600833363340}
 --- !u!1 &6784427600837032258
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,8 +2856,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bddc5691a2858624cbfe0ab8aefff9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderText: {fileID: 6784427602157673323}
-  slider: {fileID: 6784427601039826018}
+  audioChannel: 3
+  _sliderText: {fileID: 6784427602157673323}
+  _slider: {fileID: 6784427601039826018}
 --- !u!1 &6784427601054981809
 GameObject:
   m_ObjectHideFlags: 0
@@ -6889,8 +6891,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bddc5691a2858624cbfe0ab8aefff9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderText: {fileID: 6784427601348138083}
-  slider: {fileID: 6784427602122225821}
+  audioChannel: 0
+  _sliderText: {fileID: 6784427601348138083}
+  _slider: {fileID: 6784427602122225821}
 --- !u!1 &6784427602157673301
 GameObject:
   m_ObjectHideFlags: 0
@@ -7839,8 +7842,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bddc5691a2858624cbfe0ab8aefff9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderText: {fileID: 6784427600962129407}
-  slider: {fileID: 6784427602367052091}
+  audioChannel: 2
+  _sliderText: {fileID: 6784427600962129407}
+  _slider: {fileID: 6784427602367052091}
 --- !u!1 &6784427602422846818
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.PlayerLoop;
@@ -15,8 +16,11 @@ public class audioSlider : MonoBehaviour
 
     [SerializeField]
     private AudioChannel audioChannel;
-
+    
+    [SerializeField]
     private TextMeshProUGUI _sliderText;
+    
+    [SerializeField]
     private Slider _slider;
 
     private void OnEnable()
