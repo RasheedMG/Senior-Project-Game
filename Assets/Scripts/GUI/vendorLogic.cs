@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class vendorLogic : MonoBehaviour
@@ -14,11 +15,24 @@ public class vendorLogic : MonoBehaviour
     public GameObject waOutline;
     public GameObject abilitiesOutline;
     public GameObject broke;
-    private TextMeshProUGUI currency;
+    public TextMeshProUGUI currency;
+    public GameObject levelSelect;
+
+    public GameObject itemContent;
+    private ItemDisplay[] items;
+    public GameObject upgradeContent;
+    private UpgradeDisplay[] upgrades;
 
     void Start()
     {
-        currency = GameObject.Find("Currency Counter").GetComponent<TextMeshProUGUI>();
+        items = itemContent.GetComponentsInChildren<ItemDisplay>();
+        upgrades = upgradeContent.GetComponentsInChildren<UpgradeDisplay>();
+        currency.text = PlayerDataManager.currentProf.currency.ToString();
+        itemsPanel.SetActive(false);
+        upgradesPanel.SetActive(false);
+        waPanel.SetActive(false);
+        abilitiesPanel.SetActive(false);
+
     }
     public void displayPanel(string name)
     {
@@ -83,5 +97,39 @@ public class vendorLogic : MonoBehaviour
             currency.text = currentMoney.ToString();
             return true;
         }
+    }
+
+    public void Save()
+    {
+        PlayerDataManager.currentProf.currency = int.Parse(currency.text);
+
+        for(int i = 0; i < items.Length; i++)
+        {
+            if (int.Parse(items[i].count.text) == 0)
+                continue;
+            if (PlayerDataManager.currentProf.hasItem(items[i].itemName))
+                PlayerDataManager.currentProf.setItem(items[i].itemName, int.Parse(items[i].count.text));
+            else
+                PlayerDataManager.currentProf.items.Add(new SaveItem(items[i].itemName, int.Parse(items[i].count.text)));
+        }
+
+        for (int i=0;i<upgrades.Length;i++)
+        {
+            if (PlayerDataManager.currentProf.hasUpgrade(upgrades[i].title.text))
+            {
+                PlayerDataManager.currentProf.setUpgrade(upgrades[i].title.text, upgrades[i].totalCount - int.Parse(upgrades[i].count.text));
+            }
+            else
+            {
+                if (int.Parse(upgrades[i].count.text) == upgrades[i].totalCount)
+                    continue;
+                else
+                    PlayerDataManager.currentProf.upgrades.Add(new SaveUpgrade(upgrades[i].title.text,upgrades[i].totalCount-int.Parse(upgrades[i].count.text)));
+            }
+        }
+
+        SaveManager.SaveData(PlayerDataManager.currentProf);
+        gameObject.SetActive(false);
+        levelSelect.SetActive(true);
     }
 }
