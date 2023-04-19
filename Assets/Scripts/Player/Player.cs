@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
         if (PlayerHealth <= 0)
         {
             Destroy(player);
+            AudioSystem.Instance.PlaySoundAtPoint("Car Explosion", transform.position);
             var explosion =Instantiate(onDeathExplosion, transform.position, Quaternion.identity);
             Destroy(explosion, 1f);
 

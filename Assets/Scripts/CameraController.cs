@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class CameraController : MonoBehaviour
 {
     public TurretControl turretControl;
@@ -35,11 +33,16 @@ public class CameraController : MonoBehaviour
     private float rotationY;
     private Vector3 currentRotation;
     private Vector3 velocity;
+    private Vector2 movement;
 
-
-    private void Start()
+    private void OnEnable()
     {
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void OnDisable()
+    {
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void Update()
@@ -56,8 +59,11 @@ public class CameraController : MonoBehaviour
     {
         targetPos = transform.TransformPoint(Vector3.forward * 200.0f);
         // Get player input and multiply the input with sensitivity value;
-        float axisX = Input.GetAxis("Mouse X") * sensitivity;
-        float axisY = -Input.GetAxis("Mouse Y") * sensitivity;
+        //float axisX = Input.GetAxis("Mouse X") * sensitivity;
+        //float axisY = -Input.GetAxis("Mouse Y") * sensitivity;
+
+        float axisX = movement.x * sensitivity;
+        float axisY = -movement.y * sensitivity;
 
         // Accumulate the input value 
         rotationX += axisX;
@@ -77,6 +83,11 @@ public class CameraController : MonoBehaviour
         // set gameobject's forward position away from the barrel position with distance value
         transform.position = (turretParent.position + transform.up * heightPosition) - transform.forward * distance;
 
+    }
+
+    public void OnCameraMovement(InputAction.CallbackContext context)
+    {
+        movement = context.ReadValue<Vector2>();
     }
 
     private void OnDrawGizmos()

@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class WheelController : MonoBehaviour
 {
+    [SerializeField] private AudioSource brakeAudioSource;
+
     [SerializeField] WheelCollider frontLeft;
     [SerializeField] WheelCollider frontRight;
     [SerializeField] WheelCollider rearLeft;
@@ -106,6 +108,9 @@ public class WheelController : MonoBehaviour
 
         if (isReversing) { EnableReverseLight(); }
         else { DisableReverseLight(); }
+
+        if (kmph < 1f)
+            brakeAudioSource.Stop();
     }
 
     void UpdateWheel(WheelCollider col, Transform trans)
@@ -131,11 +136,16 @@ public class WheelController : MonoBehaviour
         {
             currentBreakForce = breakingForce;
             EnableBrakelightsEffect();
+            if (kmph > 1)
+            {
+                brakeAudioSource.Play();
+            }
         }
         else if (context.canceled)
         {
             currentBreakForce = 0f;
             DisableBrakelightsEffect();
+            brakeAudioSource.Stop();
         }
     }
 

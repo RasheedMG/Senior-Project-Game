@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class SpeedBoost : MonoBehaviour
 {
+    [SerializeField] private AudioSource nitroAudioSource;
+
     [SerializeField] float boostStrength = 5000f;
     [SerializeField] public float maxFuel = 5f;
     [SerializeField] float fuelRegenerationRate = 2f;
@@ -102,8 +104,20 @@ public class SpeedBoost : MonoBehaviour
 
     public void OnNitro(InputAction.CallbackContext context)
     {
-        if (context.started) { pressedBoost = true; }
-        else if (context.canceled) { releasedBoost = true; }
+        if (context.started)
+        { 
+            pressedBoost = true;
+
+            if (currentFuel > 0)
+            {
+                //AudioSystem.Instance.PlayEffectByName("Initial Nitro Effect");
+                nitroAudioSource.Play();
+            }
+        }
+        else if (context.canceled)
+        {
+            releasedBoost = true;
+        }
     }
 
     private void StartBoosters()
@@ -121,6 +135,7 @@ public class SpeedBoost : MonoBehaviour
         boostersEnabled = false;
         releasedBoost = false;
         DisableBoostersEffect();
+        nitroAudioSource.Stop();
     }
 
     private void EnableBoostersEffect()

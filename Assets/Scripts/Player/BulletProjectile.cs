@@ -31,7 +31,7 @@ public class BulletProjectile : MonoBehaviour
             var wallvfx =Instantiate(wallVFX, transform.position, Quaternion.identity);
             Destroy(wallvfx, 1f);
         }
-
+        AudioSystem.Instance.PlaySoundAtPoint("Bullet Landing", transform.position);
 
         Destroy(gameObject);
     }

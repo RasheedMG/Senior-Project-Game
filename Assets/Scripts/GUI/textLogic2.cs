@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class textLogic2 : MonoBehaviour, IPointerExitHandler, IPointerClickHandler
 {
     public GameObject original;
+    
     void Start()
     {
         
@@ -25,6 +27,6 @@ public class textLogic2 : MonoBehaviour, IPointerExitHandler, IPointerClickHandl
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        
+        SceneManager.LoadScene("TestingScene");
     }
 }

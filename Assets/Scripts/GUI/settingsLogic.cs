@@ -12,7 +12,7 @@ public class settingsLogic : MonoBehaviour
     public GameObject graphicsOutline;
     public GameObject audioOutline;
     public GameObject controlsOutline;
-    public GameObject mainMenu;
+    //public GameObject mainMenu;
 
     public void displayPanel(string name)
     {
@@ -72,6 +72,6 @@ public class settingsLogic : MonoBehaviour
         controlsPanel.SetActive(false);
         controlsOutline.SetActive(false);
         this.gameObject.SetActive(false);
-        mainMenu.SetActive(true);
+        //mainMenu.SetActive(true);
     }
 }

@@ -402,6 +402,39 @@
                     "action": "Evade",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "Left/Right [Gamepad]",
+                    "id": "90e1c3fa-dacf-421c-897f-f7e0e5eaf8b7",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Evade",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "209d9adc-0d52-4f8c-93c7-70d3b3307b29",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Evade",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "dc15686d-ff55-4710-89e8-b5b0abd0a87f",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Evade",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
