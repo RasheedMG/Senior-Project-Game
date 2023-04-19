@@ -8,6 +8,7 @@ public class multiPurchaseScript : MonoBehaviour, IPointerClickHandler
     public vendorLogic logic;
     public GameObject price;
     public GameObject counter;
+    public GameObject panel;
     private TextMeshProUGUI currentCounter;
     public bool isItem;
     int itemCount;
@@ -40,8 +41,8 @@ public class multiPurchaseScript : MonoBehaviour, IPointerClickHandler
                 itemCount = int.Parse(currentCounter.text);
                 itemCount--;
                 currentCounter.text = itemCount.ToString();
-                if(itemCount==0)
-                gameObject.SetActive(false);
+                if (itemCount == 0)
+                    panel.SetActive(false);
             }
         }
     }

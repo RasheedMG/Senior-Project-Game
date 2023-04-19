@@ -9,7 +9,7 @@ public class textHover : MonoBehaviour, IPointerEnterHandler
     public GameObject outline;
     void Start()
     {
-        
+
     }
 
     
