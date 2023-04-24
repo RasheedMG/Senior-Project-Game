@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 303ede9a0bfe25041af9e4fac46332e9, type: 3}
-  m_Name: Barrel Upgrade
+  m_Name: Plating
   m_EditorClassIdentifier: 
-  title: Barrel
-  desc: Increases weapon fire speed by 5%
+  title: Plating
+  desc: Increases armor by 1
   upgradeCount: 5
-  price: 10
+  price: 20
