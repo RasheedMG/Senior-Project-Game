@@ -455,6 +455,17 @@
                     "action": "Inventory Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa7a587b-d6a4-4455-abed-229696685fb3",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

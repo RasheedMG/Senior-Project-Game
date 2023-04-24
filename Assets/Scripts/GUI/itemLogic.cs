@@ -8,7 +8,7 @@ public class itemLogic : MonoBehaviour
     public InvLogic logic;
     public string itemName;
 
-    void Start()
+    void Awake()
     {
         logic = GameObject.Find("Inventory Canvas").GetComponent<InvLogic>();
     }
