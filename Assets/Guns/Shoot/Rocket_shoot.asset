@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e29a1cd59aa11e48b0094a4ed015a47, type: 3}
+  m_Name: Rocket_shoot
+  m_EditorClassIdentifier: 
+  IsHitscan: 0
+  BulletPrefab: {fileID: 7634089679691573872, guid: 11e60a392936bc444aa06c378511ff16, type: 3}
+  BulletSpawnForce: 1000
+  HitMask:
+    serializedVersion: 2
+    m_Bits: 193
+  FireRate: 0.05
+  SpreadType: 1
+  RecoilRecoverySpeed: 3
+  MaxSpreadTime: 3
+  ShootType: 1
+  Spread: {x: 0.3, y: 0.3, z: 0.3}
+  SpreadMultiplier: 0.1
+  SpreadTexture: {fileID: 0}

@@ -1,27 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
-    [SerializeField] public float PlayerHealth = 100;
+    [SerializeField] public float PlayerHealthMax = 100;
+    public float PlayerHealthCurrent = 100;
+
+    [SerializeField] public float PlayerShieldMax = 100;
+    public float PlayerShieldCurrent = 100;
+
+    [SerializeField] public float PlayerArmourMax = 10;
+    public float PlayerArmourCurrent = 10;
+
+    [SerializeField] private Image Healthbar;
+    [SerializeField] private Image Shieldbar;
+
     [SerializeField] private GameObject onDeathExplosion;
     [SerializeField] private GameObject player;
 
 
-    public void Update()
+    public void TakeDamage(int amount)
     {
-
-        if (PlayerHealth <= 0)
+        float postMitigationDamage = amount;
+        if (PlayerShieldCurrent > 0)
         {
-            Destroy(player);
-            AudioSystem.Instance.PlaySoundAtPoint("Car Explosion", transform.position);
-            var explosion =Instantiate(onDeathExplosion, transform.position, Quaternion.identity);
-            Destroy(explosion, 1f);
-
+            postMitigationDamage = amount - PlayerShieldCurrent;
+            if (postMitigationDamage > 0)
+            {
+                PlayerShieldCurrent = 0;
+                PlayerHealthCurrent -= postMitigationDamage;
+                if (PlayerHealthCurrent < 0)
+                {
+                    Defeated();
+                }
+            }
+            else
+            {
+                PlayerShieldCurrent -= amount;
+            }
         }
-
-
     }
+
+    public void Heal(int amount)
+    {
+        PlayerHealthCurrent += amount;
+        if (PlayerHealthCurrent > PlayerHealthMax)
+        {
+            PlayerHealthCurrent = PlayerHealthMax;
+        }
+    }
+
+    public void Defeated()
+    {
+        Destroy(player);
+
+        // TO DO for Rasheed ....  player death sound is here.
+
+        var explosion = Instantiate(onDeathExplosion, transform.position, Quaternion.identity);
+        Destroy(explosion, 1f);
+    }
+
+
+
+
+    
 
 }
