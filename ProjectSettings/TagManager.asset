@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Logic
   - Keybind
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -13,9 +14,9 @@ TagManager:
   - Player Character
   - Water
   - UI
-  - 
-  - 
-  - 
+  - enemy
+  - fllor/wall
+  - bullet
   - 
   - 
   - 
