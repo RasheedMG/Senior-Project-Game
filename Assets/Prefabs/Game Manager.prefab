@@ -267,6 +267,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3b966463-4ab1-4bd3-82a0-cf0b9ba1af1e
     m_ActionName: Player/Evade[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: InvLogic, Assembly-CSharp
+        m_MethodName: OnInventoryOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: edd09b3a-9167-4f7b-b93f-45b9dc091146
+    m_ActionName: Player/Inventory Menu[/Keyboard/i]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

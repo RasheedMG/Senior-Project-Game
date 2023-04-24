@@ -6,11 +6,11 @@ using UnityEngine;
 public class PlayerData
 {
     public int levelsCompleted=0;
-    public int currency=100;
+    public int currency=1000;
     public List<SaveItem> items= new List<SaveItem>();
     public List<SaveUpgrade> upgrades = new List<SaveUpgrade>();
     //public List<Weapon> weapons  = new List<Weapon>();
-    //public List<Ability> abilities = new List<Ability>();
+    public List<SaveAbility> abilities = new List<SaveAbility>();
     public PlayerData()
     {
 
@@ -97,6 +97,18 @@ public class PlayerData
         return false;
     }
 
+    public bool hasAbility(string name)
+    {
+        if (this.abilities.Count == 0)
+            return false;
+        for (int i = 0; i < this.abilities.Count; i++)
+        {
+            if (abilities[i].abilityName.Equals(name))
+                return true;
+        }
+        return false;
+    }
+
     public List<SaveItem> getItems()
     {
         return this.items;
@@ -105,6 +117,11 @@ public class PlayerData
     public List<SaveUpgrade> getUpgrades()
     {
         return this.upgrades;
+    }
+
+    public List<SaveAbility> getAbilities()
+    {
+        return this.abilities;
     }
 
     public void setItems(List<SaveItem> items)

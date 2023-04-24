@@ -12,7 +12,7 @@ public class MenuOpen : MonoBehaviour, IPointerClickHandler, IPointerExitHandler
     public GameObject mainMenu;
     public GameObject subMenu;
     public GameObject original;
-    public TextMeshProUGUI newORload;
+    public TextMeshProUGUI newOrload;
     void Start()
     {
         
@@ -42,19 +42,20 @@ public class MenuOpen : MonoBehaviour, IPointerClickHandler, IPointerExitHandler
                 dates[2] = SaveManager.getDate(3);
                 b = true;
             }
+            Array.Sort(dates);
             if (b)
             {
-                if (SaveManager.getDate(1).CompareTo(dates[2]) == 0)
+                if (SaveManager.getDate(1)==dates[2])
                 {
                     SaveManager.slotNum = 1;
                     PlayerDataManager.currentProf = PlayerDataManager.prof1;
                 }
-                if (SaveManager.getDate(2).CompareTo(dates[2]) == 0)
+                if (SaveManager.getDate(2)==dates[2])
                 {
                     SaveManager.slotNum = 2;
                     PlayerDataManager.currentProf = PlayerDataManager.prof2;
                 }
-                if (SaveManager.getDate(3).CompareTo(dates[2]) == 0)
+                if (SaveManager.getDate(3)==dates[2])
                 {
                     SaveManager.slotNum = 3;
                     PlayerDataManager.currentProf = PlayerDataManager.prof3;
@@ -65,11 +66,11 @@ public class MenuOpen : MonoBehaviour, IPointerClickHandler, IPointerExitHandler
         if (gameObject.name.Equals("New Game Outline"))
         {
             SaveManager.isNewGame = true;
-            newORload.text = "Create New Save";
+            newOrload.text = "Create New Save";
         }
         if (gameObject.name.Equals("Load Game Outline")) { 
             SaveManager.isNewGame = false;
-            newORload.text = "Choose Save to Load";
+            newOrload.text = "Choose Save to Load";
         }
         if (gameObject.name.Equals("Quit Outline"))
             Application.Quit();

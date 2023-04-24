@@ -5,17 +5,12 @@ using TMPro;
 
 public class itemLogic : MonoBehaviour
 {
-    public logicScript logic;
+    public InvLogic logic;
     public string itemName;
+
     void Start()
     {
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<logicScript>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        logic = GameObject.Find("Inventory Canvas").GetComponent<InvLogic>();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -24,7 +19,7 @@ public class itemLogic : MonoBehaviour
         if (other.gameObject.layer==3)
         {
             Destroy(this.gameObject);
-            logic.itemPickUp(itemName);
+            logic.ItemPickup(itemName);
         }
     }
 
