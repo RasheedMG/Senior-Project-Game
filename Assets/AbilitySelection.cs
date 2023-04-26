@@ -10,21 +10,34 @@ public class AbilitySelection : MonoBehaviour
     [SerializeField] private Transform equippedAbilityButtonParent;
     [SerializeField] private AbilityHolder abilityHolder;
     
-    [SerializeField] private List<Ability> availableAbilities;
+    //[SerializeField] private List<Ability> availableAbilities;
     
     private int _selectedAbilitySlot = 0;
 
-    /*private List<Ability> availableAbilities = new List<Ability>(); // Update this list with the abilities available to the player*/
+    private List<Ability> availableAbilities = new List<Ability>(); // Update this list with the abilities available to the player
 
     private void Start()
     {
         abilityButtonTemplate.SetActive(false);
         
-        // Initialize availableAbilities with some example abilities
-        // Remove this block and update the list elsewhere in your game
-        /*availableAbilities.Add(Resources.Load<DoubleSpeedAbility>("Abilities/DoubleSpeed"));
-        availableAbilities.Add(Resources.Load<TimeWarpAbility>("Abilities/TimeWarp"));
-        availableAbilities.Add(Resources.Load<MagicBulletAbility>("Abilities/MagicBullet"));*/
+        PopulateAbilitiesAvailable();
+    }
+
+    private void PopulateAbilitiesAvailable()
+    {
+        if (PlayerDataManager.currentProf == null)
+        {
+            Debug.LogError("No Profile Loaded", this);
+            return;
+        }
+        
+        List<SaveAbility> playerAbilities = PlayerDataManager.currentProf.getAbilities();
+
+        foreach (SaveAbility ability in playerAbilities)
+        {
+            print(ability.abilityName);
+            availableAbilities.Add(Resources.Load<Ability>($"Abilities/{ability.abilityName}"));
+        }
     }
 
     public void ShowAbilitySelectionUI()
