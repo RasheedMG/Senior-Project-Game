@@ -10,10 +10,10 @@ public class VolumeController : Singleton<VolumeController>
     
     private Dictionary<string, float> Volumes/* { get; private set; }*/ = new Dictionary<string, float>()
     {
-        { "masterVolume", 80f },
-        { "musicVolume", 80f },
-        { "environmentVolume", 80f },
-        { "effectsVolume", 80f }
+        { "masterVolume", 50f },
+        { "musicVolume", 100f },
+        { "environmentVolume", 100f },
+        { "effectsVolume", 100f }
     };
 
     private void Start()

@@ -182,7 +182,10 @@ MonoBehaviour:
   musics:
   - name: Main Menu
     clipsPool:
-    - {fileID: 8300000, guid: b457d2ae0c54a994b8193f8d04772581, type: 3}
+    - {fileID: 8300000, guid: b4db970898969804bb32c6ac93a2dce1, type: 3}
+  - name: Level Select
+    clipsPool:
+    - {fileID: 8300000, guid: d42f041fa34e3c04f9eba9ffaaf12bcc, type: 3}
   - name: Boss Fight
     clipsPool: []
   environments: []
