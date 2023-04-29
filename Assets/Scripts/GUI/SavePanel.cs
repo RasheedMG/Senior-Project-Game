@@ -26,11 +26,11 @@ public class SavePanel : MonoBehaviour, IPointerClickHandler
                     {
                         empty.SetActive(false);
                         saveData.SetActive(true);
-                        if (PlayerDataManager.prof1.levelsCompleted == 3)
+                        if (PlayerDataManager.prof1.currentLevel == 4)
                             level.text = "All levels completed!";
                         else
                         {
-                            int lv = PlayerDataManager.prof1.levelsCompleted + 1;
+                            int lv = PlayerDataManager.prof1.currentLevel;
                             level.text = "Level " + lv;
                         }
                         lastPlayed.text = SaveManager.getDate(1).ToString("MM/dd/yyyy hh:mm tt"); ;
@@ -46,11 +46,11 @@ public class SavePanel : MonoBehaviour, IPointerClickHandler
                     else
                     {
                         empty.SetActive(false);
-                        if (PlayerDataManager.prof2.levelsCompleted == 3)
+                        if (PlayerDataManager.prof2.currentLevel == 4)
                             level.text = "All levels completed!";
                         else
                         {
-                            int lv = PlayerDataManager.prof2.levelsCompleted + 1;
+                            int lv = PlayerDataManager.prof2.currentLevel;
                             level.text = "Level " + lv;
                         }
                         lastPlayed.text = SaveManager.getDate(2).ToString("MM/dd/yyyy hh:mm tt"); ;
@@ -66,11 +66,11 @@ public class SavePanel : MonoBehaviour, IPointerClickHandler
                     else
                     {
                         empty.SetActive(false);
-                        if (PlayerDataManager.prof3.levelsCompleted == 3)
+                        if (PlayerDataManager.prof3.currentLevel == 4)
                             level.text = "All levels completed!";
                         else
                         {
-                            int lv = PlayerDataManager.prof3.levelsCompleted + 1;
+                            int lv = PlayerDataManager.prof3.currentLevel;
                             level.text = "Level " + lv;
                         }
                         lastPlayed.text = SaveManager.getDate(3).ToString("MM/dd/yyyy hh:mm tt"); ;

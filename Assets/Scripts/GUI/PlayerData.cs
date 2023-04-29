@@ -5,11 +5,11 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-    public int levelsCompleted=0;
+    public int currentLevel=1;
     public int currency=1000;
     public List<SaveItem> items= new List<SaveItem>();
     public List<SaveUpgrade> upgrades = new List<SaveUpgrade>();
-    //public List<Weapon> weapons  = new List<Weapon>();
+    public List<SaveWeapon> weapons  = new List<SaveWeapon>();
     public List<SaveAbility> abilities = new List<SaveAbility>();
     public PlayerData()
     {
@@ -18,7 +18,7 @@ public class PlayerData
 
     public void levelComplete()
     {
-        this.levelsCompleted++;
+        this.currentLevel++;
     }
 
     public int getCurrency()
@@ -55,12 +55,33 @@ public class PlayerData
         return null;
     }
 
+    public SaveWeapon getWeapon(string name)
+    {
+        if (this.weapons.Count == 0)
+            return null;
+        for (int i = 0; i < this.weapons.Count; i++)
+        {
+            if (weapons[i].name.Equals(name))
+                return weapons[i];
+        }
+        return null;
+    }
+
     public void setItem(string name, int newCount)
     {
         for (int i = 0; i < this.items.Count; i++)
         {
             if (items[i].itemName.Equals(name))
                 items[i].count = newCount;
+        }
+    }
+
+    public void setAmmo(string name, int newCount)
+    {
+        for (int i = 0; i < this.weapons.Count; i++)
+        {
+            if (weapons[i].name.Equals(name))
+                weapons[i].currentAmmo = newCount;
         }
     }
 
@@ -109,6 +130,18 @@ public class PlayerData
         return false;
     }
 
+    public bool hasWeapon(string name)
+    {
+        if (this.weapons.Count == 0)
+            return false;
+        for (int i = 0; i < this.weapons.Count; i++)
+        {
+            if (weapons[i].name.Equals(name))
+                return true;
+        }
+        return false;
+    }
+
     public List<SaveItem> getItems()
     {
         return this.items;
@@ -122,6 +155,11 @@ public class PlayerData
     public List<SaveAbility> getAbilities()
     {
         return this.abilities;
+    }
+
+    public List<SaveWeapon> getWeapons()
+    {
+        return this.weapons;
     }
 
     public void setItems(List<SaveItem> items)
