@@ -8948,6 +8948,7 @@ GameObject:
   - component: {fileID: 702998306}
   - component: {fileID: 702998305}
   - component: {fileID: 702998309}
+  - component: {fileID: 702998310}
   m_Layer: 5
   m_Name: Level Select Canvas
   m_TagString: Untagged
@@ -9059,6 +9060,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vendorCanvas: {fileID: 24223970}
+--- !u!114 &702998310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702998304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fcd4540926b0454ba35913a0b3c122e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundType: 0
+  _soundName: Level Select
 --- !u!1 &703082695
 GameObject:
   m_ObjectHideFlags: 0
