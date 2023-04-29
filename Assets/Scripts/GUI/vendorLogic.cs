@@ -34,6 +34,11 @@ public class vendorLogic : MonoBehaviour
         abilitiesPanel.SetActive(false);
 
     }
+
+    void noMoney()
+    {
+        broke.SetActive(false);
+    }
     public void displayPanel(string name)
     {
         switch (name)
@@ -89,6 +94,7 @@ public class vendorLogic : MonoBehaviour
         if (price > currentMoney)
         {
             broke.SetActive(true);
+            Invoke("noMoney",3f);
             return false;
         }
         else

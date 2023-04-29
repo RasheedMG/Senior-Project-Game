@@ -4,9 +4,17 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class LevelSelect : MonoBehaviour, IPointerClickHandler
+public class FirstLevel : MonoBehaviour, IPointerClickHandler
 {
+    public GameObject finished;
     public string level;
+    private int currentLevel = PlayerDataManager.currentProf.currentLevel;
+
+    void Start()
+    {
+        if (currentLevel > 1)
+            finished.SetActive(true);
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
         SceneManager.LoadScene(level);
