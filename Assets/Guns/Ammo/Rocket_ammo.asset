@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852ca40c648fa6d4d9d88abd8ef71f6d, type: 3}
   m_Name: Rocket_ammo
   m_EditorClassIdentifier: 
-  MaxAmmo: 120
+  MaxAmmo: 30
   ClipSize: 30
-  CurrentAmmo: 120
+  CurrentAmmo: 30
   CurrentClipAmmo: 30

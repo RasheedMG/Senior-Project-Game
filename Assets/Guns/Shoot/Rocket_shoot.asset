@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Rocket_shoot
   m_EditorClassIdentifier: 
   IsHitscan: 0
-  BulletPrefab: {fileID: 7634089679691573872, guid: 11e60a392936bc444aa06c378511ff16, type: 3}
-  BulletSpawnForce: 1000
+  BulletPrefab: {fileID: 8587259793424836632, guid: afadb980d09a19d4a97e71b643431025, type: 3}
+  BulletSpawnForce: 2500
   HitMask:
     serializedVersion: 2
     m_Bits: 193
-  FireRate: 0.05
+  FireRate: 1.5
   SpreadType: 1
-  RecoilRecoverySpeed: 3
-  MaxSpreadTime: 3
+  RecoilRecoverySpeed: 1
+  MaxSpreadTime: 1
   ShootType: 1
-  Spread: {x: 0.3, y: 0.3, z: 0.3}
+  Spread: {x: 0.1, y: 0.1, z: 0.1}
   SpreadMultiplier: 0.1
   SpreadTexture: {fileID: 0}
