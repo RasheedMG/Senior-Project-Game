@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSelect.unity
     guid: c8184e8a44259a34f9faf459bae14019
   - enabled: 1
-    path: Assets/Scenes/TestingScene.unity
+    path: Assets/Scenes/TestingScene_Khalid.unity
     guid: b0f44cb96c0e5d74a83845bc48c28771
   m_configObjects: {}
