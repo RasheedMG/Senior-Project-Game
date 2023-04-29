@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122ab2a19482d694cb49c1e5e7117bfc, type: 3}
   m_Name: Orange Bullet Impact Particle System
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 31264410355686194, guid: 2d74cce563126ef479c0715bc7a8ca7a, type: 3}
+  Prefab: {fileID: 919132149155446097, guid: efe82518e6032f646851677e253a8a6e, type: 3}
   Probability: 1
   RandomizeRotation: 0
   RandomizedRotationMultiplier: {x: 0, y: 0, z: 0}

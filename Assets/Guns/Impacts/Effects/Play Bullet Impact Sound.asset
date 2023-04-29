@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f05eebee7dd21149b14060d6f342497, type: 3}
   m_Name: Play Bullet Impact Sound
   m_EditorClassIdentifier: 
-  AudioSourcePrefab: {fileID: 5773737328097785062, guid: 4fc9bfae7050e964cac739e3bbbd1807,
-    type: 3}
+  AudioSourcePrefab: {fileID: 5773737328097785062, guid: b73748c86a95ae54baf31c408068c8b2, type: 3}
   AudioClips:
-  - {fileID: 8300000, guid: 9c53f1bad5108d8419b0488d9c46e93a, type: 3}
-  VolumeRange: {x: 1, y: 1}
+  - {fileID: 8300000, guid: 12d38a42e07655a49a1d83be89a784b6, type: 3}
+  VolumeRange: {x: 0.01, y: 0.01}

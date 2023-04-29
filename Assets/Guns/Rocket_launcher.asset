@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7301d1c341f36478e6140cdbb9ca03, type: 3}
   m_Name: Rocket_launcher
   m_EditorClassIdentifier: 
-  ImpactType: {fileID: 11400000, guid: d343625551f5ea649b651a5b92b34885, type: 2}
-  Type: 2
+  ImpactType: {fileID: 11400000, guid: 64abc9f8cb8ebfe4cb38669b71c8faef, type: 2}
+  Type: 0
   Name: Rocket launcher
   ModelPrefab: {fileID: 1102016644488018461, guid: 53c7fd16a21302e4cb7ce27c327c2a78, type: 3}
   SpawnPoint: {x: 0, y: 0, z: 0}
   SpawnRotation: {x: 0, y: 0, z: 0}
   DamageConfig: {fileID: 11400000, guid: 9a163af148141da439a3e94bbc26318c, type: 2}
   ShootConfig: {fileID: 11400000, guid: a85ceb9a1b8186f4da19ad1e8cc5a43f, type: 2}
-  AmmoConfig: {fileID: 11400000, guid: 52655dd4c6aadc7498244a1da3035e00, type: 2}
+  AmmoConfig: {fileID: 11400000, guid: bd1155a750abc6f4a9ad21a5a6b43fe1, type: 2}
   TrailConfig: {fileID: 11400000, guid: 646d0fb379aaa6a4ab2472453565d49c, type: 2}
-  AudioConfig: {fileID: 11400000, guid: 9ed9f2585f941484d93c4445a518ae2f, type: 2}
+  AudioConfig: {fileID: 11400000, guid: 7809cc0e6af9c5d46bd048171370711c, type: 2}
