@@ -13,34 +13,103 @@ public class Player : MonoBehaviour
     [SerializeField] public float PlayerArmourMax = 10;
     public float PlayerArmourCurrent = 10;
 
+    [SerializeField] float shieldRegenerationRate = 2f;
+    [SerializeField] float shieldRegenerationDelay = 2f;
+
+    private bool startRegenerationDelay = false;
+    private float currentRegenerationDelay;
+    private bool startRegenerating = false;
+
+
+
     [SerializeField] private Image Healthbar;
     [SerializeField] private Image Shieldbar;
 
     [SerializeField] private GameObject onDeathExplosion;
     [SerializeField] private GameObject player;
 
-
-    public void TakeDamage(int amount)
+    public void Awake()
     {
-        float postMitigationDamage = amount;
-        if (PlayerShieldCurrent > 0)
+        currentRegenerationDelay = shieldRegenerationDelay;
+    }
+
+    private void Update()
+    {
+        if (startRegenerationDelay)
         {
-            postMitigationDamage = amount - PlayerShieldCurrent;
-            if (postMitigationDamage > 0)
+            currentRegenerationDelay -= Time.deltaTime;
+            if (currentRegenerationDelay <= 0)
             {
-                PlayerShieldCurrent = 0;
-                PlayerHealthCurrent -= postMitigationDamage;
-                if (PlayerHealthCurrent < 0)
-                {
-                    Defeated();
-                }
-            }
-            else
-            {
-                PlayerShieldCurrent -= amount;
+                startRegenerating = true;
+                startRegenerationDelay = false;
+                currentRegenerationDelay = shieldRegenerationDelay;
             }
         }
+
+        if (startRegenerating)
+        {
+            PlayerShieldCurrent += Time.deltaTime * shieldRegenerationRate;
+            if (PlayerShieldCurrent >= PlayerShieldMax)
+            {
+                PlayerShieldCurrent = PlayerShieldMax;
+                startRegenerating = false;
+            }
+            UpdateBars();
+        }
+
+
+
     }
+
+    public void TakeDamage(float amount) 
+    {
+        currentRegenerationDelay = shieldRegenerationDelay;
+        startRegenerationDelay = true;
+
+
+        float remainingDamage = amount;
+        if (PlayerShieldCurrent > 0)
+        {
+            remainingDamage = amount - PlayerShieldCurrent;
+            PlayerShieldCurrent = Mathf.Clamp(PlayerShieldCurrent - amount ,0 , 10000) ; 
+        }
+
+        if (remainingDamage > PlayerArmourCurrent)
+        { 
+            remainingDamage -= PlayerArmourCurrent;
+        }
+
+        else if (remainingDamage <= PlayerArmourCurrent && remainingDamage > 0) 
+        {
+            remainingDamage = 1;
+        }
+
+        if(remainingDamage > 0)
+        {
+            PlayerHealthCurrent -= remainingDamage;
+        }
+        if (PlayerHealthCurrent <= 0)
+        {
+            Defeated();
+        }
+        UpdateBars();
+    }
+
+ 
+
+
+
+    // To do 
+    //  void shieldRestore() {}
+
+
+
+    private void UpdateBars() 
+    {
+        Healthbar.fillAmount = PlayerHealthCurrent / PlayerHealthMax;
+        Shieldbar.fillAmount = PlayerShieldCurrent / PlayerShieldMax;
+    }
+
 
     public void Heal(int amount)
     {
@@ -49,21 +118,16 @@ public class Player : MonoBehaviour
         {
             PlayerHealthCurrent = PlayerHealthMax;
         }
+        UpdateBars();
     }
 
     public void Defeated()
     {
-        Destroy(player);
+        player.SetActive(false);
 
-        // TO DO for Rasheed ....  player death sound is here.
+        AudioSystem.Instance.PlaySoundAtPoint("Car Explosion", transform.position);
 
         var explosion = Instantiate(onDeathExplosion, transform.position, Quaternion.identity);
         Destroy(explosion, 1f);
     }
-
-
-
-
-    
-
 }
