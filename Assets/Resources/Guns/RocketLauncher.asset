@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7301d1c341f36478e6140cdbb9ca03, type: 3}
+  m_Name: RocketLauncher
+  m_EditorClassIdentifier: 
+  ImpactType: {fileID: 0}
+  Type: 4
+  Name: Rocket Launcher
+  ModelPrefab: {fileID: 1176637448975649763, guid: 71173d289740c9040aed0ed663b5f7ef, type: 3}
+  icon: {fileID: 21300032, guid: 6674e8c43c63e4f4184cbd009379498d, type: 3}
+  SpawnPoint: {x: 0, y: 0, z: 0}
+  SpawnRotation: {x: 0, y: 0, z: 0}
+  DamageConfig: {fileID: 11400000, guid: 9a163af148141da439a3e94bbc26318c, type: 2}
+  ShootConfig: {fileID: 11400000, guid: a85ceb9a1b8186f4da19ad1e8cc5a43f, type: 2}
+  AmmoConfig: {fileID: 11400000, guid: bd1155a750abc6f4a9ad21a5a6b43fe1, type: 2}
+  TrailConfig: {fileID: 11400000, guid: 646d0fb379aaa6a4ab2472453565d49c, type: 2}
+  AudioConfig: {fileID: 11400000, guid: 7809cc0e6af9c5d46bd048171370711c, type: 2}
