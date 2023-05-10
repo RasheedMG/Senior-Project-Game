@@ -38,6 +38,25 @@ public class multiPurchaseScript : MonoBehaviour, IPointerClickHandler
             }
             else
             {
+                if(PlayerPrefs.HasKey("Getting Stronger"))
+                {
+                    int count = PlayerPrefs.GetInt("Getting Stronger");
+                    if (count != 10)
+                    {
+                        count++;
+                        if (count == 10)
+                        {
+                            PlayerPrefs.SetInt("Getting Stronger", count);
+                            logic.GettingStronger();
+                        }
+                        else
+                            PlayerPrefs.SetInt("Getting Stronger", count);
+                    }
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("Getting Stronger",1);
+                }
                 itemCount = int.Parse(currentCounter.text);
                 itemCount--;
                 currentCounter.text = itemCount.ToString();

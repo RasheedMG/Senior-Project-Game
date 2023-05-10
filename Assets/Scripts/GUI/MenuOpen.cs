@@ -45,23 +45,26 @@ public class MenuOpen : MonoBehaviour, IPointerClickHandler, IPointerExitHandler
             Array.Sort(dates);
             if (b)
             {
-                if (SaveManager.getDate(1)==dates[2])
+                if (SaveManager.getDate(1) == dates[2])
                 {
                     SaveManager.slotNum = 1;
                     PlayerDataManager.currentProf = PlayerDataManager.prof1;
                 }
-                if (SaveManager.getDate(2)==dates[2])
+                if (SaveManager.getDate(2) == dates[2])
                 {
                     SaveManager.slotNum = 2;
                     PlayerDataManager.currentProf = PlayerDataManager.prof2;
                 }
-                if (SaveManager.getDate(3)==dates[2])
+                if (SaveManager.getDate(3) == dates[2])
                 {
                     SaveManager.slotNum = 3;
                     PlayerDataManager.currentProf = PlayerDataManager.prof3;
                 }
                 SceneManager.LoadScene("LevelSelect");
+                return;
             }
+            else
+                return;
         }
         if (gameObject.name.Equals("New Game Outline"))
         {
@@ -73,7 +76,11 @@ public class MenuOpen : MonoBehaviour, IPointerClickHandler, IPointerExitHandler
             newOrload.text = "Choose Save to Load";
         }
         if (gameObject.name.Equals("Quit Outline"))
+        {
             Application.Quit();
+            return;
+        }
+            
 
         //mainMenu.SetActive(false);
         subMenu.SetActive(true);

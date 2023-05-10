@@ -2,7 +2,7 @@ using LlamAcademy.ImpactSystem;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
-
+using UnityEngine.UI;
 namespace LlamAcademy.Guns
 {
     [CreateAssetMenu(fileName = "Gun", menuName = "Guns/Gun", order = 0)]
@@ -11,6 +11,7 @@ namespace LlamAcademy.Guns
         public ImpactType ImpactType;
         public GunType Type;
         public string Name;
+        public Sprite icon;
         public GameObject ModelPrefab;
         public Vector3 SpawnPoint;
         public Vector3 SpawnRotation;
