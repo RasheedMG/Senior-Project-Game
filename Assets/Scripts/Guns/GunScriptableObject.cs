@@ -12,8 +12,8 @@ namespace LlamAcademy.Guns
         public ImpactType ImpactType;
         public GunType Type;
         public string Name;
-        public GameObject ModelPrefab;
         public Sprite icon;
+        public GameObject ModelPrefab;
         public Vector3 SpawnPoint;
         public Vector3 SpawnRotation;
 
@@ -35,6 +35,8 @@ namespace LlamAcademy.Guns
         private ObjectPool<TrailRenderer> TrailPool;
         private ObjectPool<Bullet> BulletPool;
         private bool LastFrameWantedToShoot;
+
+        
 
         /// <summary>
         /// Spawns the Gun Model into the scene
@@ -457,6 +459,7 @@ namespace LlamAcademy.Guns
             config.Type = Type;
             config.Name = Name;
             config.name = name;
+            config.icon = icon;
             config.DamageConfig = DamageConfig.Clone() as DamageConfigScriptableObject;
             config.ShootConfig = ShootConfig.Clone() as ShootConfigScriptableObject;
             config.AmmoConfig = AmmoConfig.Clone() as AmmoConfigScriptableObject;

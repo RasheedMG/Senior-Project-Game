@@ -15,8 +15,8 @@ MonoBehaviour:
   ImpactType: {fileID: 0}
   Type: 5
   Name: Laser
-  ModelPrefab: {fileID: 2585341956038940016, guid: 82c613f4932d3724997103a7dd55169b, type: 3}
   icon: {fileID: 4985848542442974150, guid: 2262f408278271248889a3ea3c7e75bf, type: 3}
+  ModelPrefab: {fileID: 2585341956038940016, guid: 82c613f4932d3724997103a7dd55169b, type: 3}
   SpawnPoint: {x: 0, y: 7, z: 0}
   SpawnRotation: {x: 0, y: 0, z: 0}
   DamageConfig: {fileID: 11400000, guid: d0d7bb75f3d98d642959b0f331590445, type: 2}

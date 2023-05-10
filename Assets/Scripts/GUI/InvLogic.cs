@@ -9,7 +9,7 @@ public class InvLogic : MonoBehaviour
     public GameObject itemPanel;
     public GameObject newItem;
     public GameObject inv;
-
+    public GameObject achievementPopup;
     void Awake()
     {
         invMenu = GetComponentInChildren<CanvasGroup>();
@@ -17,10 +17,18 @@ public class InvLogic : MonoBehaviour
 
     void Start()
     {
-
+        if (!PlayerPrefs.HasKey("1st Steps"))
+        {
+        PlayerPrefs.SetInt("1st Steps", -1);
+        Invoke("firstGame", 3);
+        }
     }
 
-  
+    void firstGame()
+    {
+        GameObject achievement = Instantiate(achievementPopup,gameObject.transform);
+        achievement.name = "1st Steps";
+    }
 
     public void OnInventoryOpen()
     {

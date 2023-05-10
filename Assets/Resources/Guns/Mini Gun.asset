@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea7301d1c341f36478e6140cdbb9ca03, type: 3}
-  m_Name: MiniGun
+  m_Name: Mini Gun
   m_EditorClassIdentifier: 
   ImpactType: {fileID: 0}
   Type: 3
-  Name: MiniGun
-  ModelPrefab: {fileID: 8198424242655086639, guid: b0ba3096e5a229a4c8f265f42a100692, type: 3}
+  Name: Mini Gun
   icon: {fileID: 21300000, guid: 216e0632be566a94cab356b5d24a71d0, type: 3}
+  ModelPrefab: {fileID: 8198424242655086639, guid: b0ba3096e5a229a4c8f265f42a100692, type: 3}
   SpawnPoint: {x: 0, y: 0, z: 0}
   SpawnRotation: {x: 0, y: 0, z: 0}
   DamageConfig: {fileID: 11400000, guid: f2d32efdcf464af4fa185761c06ff33b, type: 2}

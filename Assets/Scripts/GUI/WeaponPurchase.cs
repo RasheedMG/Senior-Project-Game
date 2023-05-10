@@ -22,7 +22,7 @@ public class WeaponPurchase : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         if (logic.purchase(itemPrice)) {
-            PlayerDataManager.currentProf.weapons.Add(new SaveWeapon(weapon.Type.ToString(), weapon.AmmoConfig.MaxAmmo));
+            PlayerDataManager.currentProf.weapons.Add(new SaveWeapon(weapon.name, weapon.AmmoConfig.MaxAmmo));
             weaponPanel.SetActive(false);
             ammoPanel.SetActive(true); 
         }

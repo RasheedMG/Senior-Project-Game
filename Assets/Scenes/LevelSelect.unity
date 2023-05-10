@@ -181,9 +181,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f363dc064d1b84e45932c442ebe02204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: ceff158cbc7d3a7479bbd92e8cc49515, type: 2}
+  weapon: {fileID: 11400000, guid: df969dca9bf1604488b0a84e327463ad, type: 2}
   weaponName: {fileID: 339733491}
   ammo: {fileID: 1458794487}
+  icon: {fileID: 445159801}
 --- !u!114 &3710925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,6 +523,7 @@ MonoBehaviour:
   broke: {fileID: 1245577708}
   currency: {fileID: 227677657}
   levelSelect: {fileID: 702998304}
+  achievementPopup: {fileID: 8913588322273689010, guid: 2e8a5af58e818e44995008e95e39b94c, type: 3}
   itemContent: {fileID: 1916699869}
   upgradeContent: {fileID: 1127697747}
 --- !u!114 &24223972
@@ -3884,7 +3886,7 @@ GameObject:
   - component: {fileID: 293890960}
   - component: {fileID: 293890959}
   m_Layer: 5
-  m_Name: Minigun Ammo
+  m_Name: Mini Gun Ammo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3929,9 +3931,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f363dc064d1b84e45932c442ebe02204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: a3671d87a09632347afaad73f5972e82, type: 2}
+  weapon: {fileID: 11400000, guid: 5cd9570d2f2f4704586e3559a38c158a, type: 2}
   weaponName: {fileID: 957017777}
   ammo: {fileID: 809700537}
+  icon: {fileID: 1449914520}
 --- !u!114 &293890960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16509,7 +16512,7 @@ GameObject:
   - component: {fileID: 1412826138}
   - component: {fileID: 1412826137}
   m_Layer: 5
-  m_Name: Minigun
+  m_Name: Mini Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16552,8 +16555,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoPanel: {fileID: 293890957}
-  weapon: {fileID: 11400000, guid: a3671d87a09632347afaad73f5972e82, type: 2}
+  weapon: {fileID: 11400000, guid: 5cd9570d2f2f4704586e3559a38c158a, type: 2}
   weaponName: {fileID: 949766694}
+  icon: {fileID: 42482846}
 --- !u!114 &1412826138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19499,8 +19503,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoPanel: {fileID: 3710922}
-  weapon: {fileID: 11400000, guid: ceff158cbc7d3a7479bbd92e8cc49515, type: 2}
+  weapon: {fileID: 11400000, guid: df969dca9bf1604488b0a84e327463ad, type: 2}
   weaponName: {fileID: 784005786}
+  icon: {fileID: 28573040}
 --- !u!114 &1593971700
 MonoBehaviour:
   m_ObjectHideFlags: 0

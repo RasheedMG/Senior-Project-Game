@@ -17,7 +17,7 @@ public class vendorLogic : MonoBehaviour
     public GameObject broke;
     public TextMeshProUGUI currency;
     public GameObject levelSelect;
-
+    public GameObject achievementPopup;
     public GameObject itemContent;
     private ItemDisplay[] items;
     public GameObject upgradeContent;
@@ -103,6 +103,12 @@ public class vendorLogic : MonoBehaviour
             currency.text = currentMoney.ToString();
             return true;
         }
+    }
+
+    public void GettingStronger()
+    {
+        GameObject achievement = Instantiate(achievementPopup, gameObject.transform);
+        achievement.name = "Getting Stronger";
     }
 
     public void Save()
