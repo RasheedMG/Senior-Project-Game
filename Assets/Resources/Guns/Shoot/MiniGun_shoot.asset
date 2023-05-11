@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsHitscan: 0
   BulletPrefab: {fileID: 4134854555783104936, guid: 6e874eaac99d20642a5c2929d1898a5a, type: 3}
-  BulletSpawnForce: 100
+  BulletSpawnForce: 2500
   HitMask:
     serializedVersion: 2
     m_Bits: 0

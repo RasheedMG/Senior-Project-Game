@@ -11,9 +11,12 @@ namespace LlamAcademy.Guns.Demo
         private PlayerGunSelector GunSelector;
         private TextMeshProUGUI AmmoText;
 
+        
+
         private void Awake()
         {
             AmmoText = GetComponent<TextMeshProUGUI>();
+           
         }
 
         private void Update()

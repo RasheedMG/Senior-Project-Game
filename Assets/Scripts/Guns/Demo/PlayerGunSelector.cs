@@ -18,10 +18,8 @@ namespace LlamAcademy.Guns.Demo
         private List<GunScriptableObject> Guns;
 
         [SerializeField]
-        private List<GunScriptableObject> instancedGuns;
+        public List<GunScriptableObject> instancedGuns;
 
-/*        [SerializeField]
-        private PlayerIK InverseKinematics;*/
 
         [Space]
         [Header("Runtime Filled")]
@@ -49,24 +47,10 @@ namespace LlamAcademy.Guns.Demo
             }
         }
 
- /*       private void RecursiveMeshControl(GunScriptableObject instantatedGun, bool enable)
-        {
-            var meshrenderersgun = instantatedGun.ModelPrefab.GetComponentsInChildren<Renderer>();
-            foreach (var mesh in meshrenderersgun)
-            {
-                
-                mesh.enabled = enable;
-            }
-        }*/
-
         private void IKMagic()
         {
-            // some magic for IK
             Transform[] allChildren = GunParent.GetComponentsInChildren<Transform>();
-/*            InverseKinematics.LeftElbowIKTarget = allChildren.FirstOrDefault(child => child.name == "LeftElbow");
-            InverseKinematics.RightElbowIKTarget = allChildren.FirstOrDefault(child => child.name == "RightElbow");
-            InverseKinematics.LeftHandIKTarget = allChildren.FirstOrDefault(child => child.name == "LeftHand");
-            InverseKinematics.RightHandIKTarget = allChildren.FirstOrDefault(child => child.name == "RightHand");*/
+
         }
 
         private void EquipWeapon(GunScriptableObject gun)
@@ -84,20 +68,34 @@ namespace LlamAcademy.Guns.Demo
             ActiveGun = gun;
             ActiveGun.RecursiveMeshControl(true);
 
-            // ActiveGun = gun.Clone() as GunScriptableObject;
-            //Spawn(GunParent, this, Camera);
+
         }
 
         private void Update()
         {
-              if (Keyboard.current.tKey.wasReleasedThisFrame)
+              if (Keyboard.current.digit1Key.wasReleasedThisFrame)
               {
-                    EquipWeapon(instancedGuns[1]);
+                    EquipWeapon(instancedGuns[0]);
 
               }
-            if (Keyboard.current.yKey.wasReleasedThisFrame)
+             if (Keyboard.current.digit2Key.wasReleasedThisFrame)
+                {
+                EquipWeapon(instancedGuns[1]);
+
+                }
+            if (Keyboard.current.digit3Key.wasReleasedThisFrame)
             {
-                EquipWeapon(instancedGuns[0]);
+                EquipWeapon(instancedGuns[2]);
+
+            }
+            if (Keyboard.current.digit4Key.wasReleasedThisFrame)
+            {
+                EquipWeapon(instancedGuns[3]);
+
+            }
+            if (Keyboard.current.digit5Key.wasReleasedThisFrame)
+            {
+                EquipWeapon(instancedGuns[4]);
 
             }
         }

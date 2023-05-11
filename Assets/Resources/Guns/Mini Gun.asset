@@ -17,7 +17,7 @@ MonoBehaviour:
   Name: Mini Gun
   icon: {fileID: 21300000, guid: 216e0632be566a94cab356b5d24a71d0, type: 3}
   ModelPrefab: {fileID: 8198424242655086639, guid: b0ba3096e5a229a4c8f265f42a100692, type: 3}
-  SpawnPoint: {x: 0, y: 0, z: 0}
+  SpawnPoint: {x: 0, y: 6, z: 0}
   SpawnRotation: {x: 0, y: 0, z: 0}
   DamageConfig: {fileID: 11400000, guid: f2d32efdcf464af4fa185761c06ff33b, type: 2}
   ShootConfig: {fileID: 11400000, guid: 4e8f65635bb96554897ba9235d715a7c, type: 2}

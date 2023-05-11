@@ -15,9 +15,9 @@ MonoBehaviour:
   ImpactType: {fileID: 0}
   Type: 2
   Name: Machine Gun
+  icon: {fileID: 21300044, guid: 5acb27b603af6d44ea6113c4b7b15385, type: 3}
   ModelPrefab: {fileID: 1102016644488018461, guid: 53c7fd16a21302e4cb7ce27c327c2a78, type: 3}
-  icon: {fileID: 21300044, guid: 6674e8c43c63e4f4184cbd009379498d, type: 3}
-  SpawnPoint: {x: 0, y: 7, z: 0}
+  SpawnPoint: {x: 0, y: 7.5, z: 0}
   SpawnRotation: {x: 0, y: 0, z: 0}
   DamageConfig: {fileID: 11400000, guid: 186ab8714ef3d5847ab0a0093b1990d6, type: 2}
   ShootConfig: {fileID: 11400000, guid: 98ef5d9b89a16df41a5cf994f7fb98e9, type: 2}
