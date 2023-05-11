@@ -17,6 +17,9 @@ namespace LlamAcademy.Guns.Demo
         [SerializeField]
         private List<GunScriptableObject> Guns;
 
+        
+
+
         [SerializeField]
         public List<GunScriptableObject> instancedGuns;
 

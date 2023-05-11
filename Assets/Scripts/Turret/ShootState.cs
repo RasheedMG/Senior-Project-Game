@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class ShootState : TurretState
 {
 
@@ -15,6 +17,7 @@ public class ShootState : TurretState
         if (parent.Target != null)
         {
             parent.Rotator.LookAt(parent.Target.position + parent.AimOffset);
+            
         }
         if (!parent.CanSeeTarget(parent.GunBarrels[0].forward, parent.Rotator.position, "Player"))
         {

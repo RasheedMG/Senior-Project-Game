@@ -19,6 +19,8 @@ namespace LlamAcademy.Guns.Demo.Enemy
         {
             Movement.StopMoving();
             PainResponse.HandleDeath();
+
+            
         }
     }
 }

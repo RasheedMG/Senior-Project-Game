@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    protected TurretState currentState;
+    [SerializeField] public TurretState currentState;
 
     public Transform Target { get; set; }
+
+    
 
     [SerializeField]
     private float rotationSpeed;
@@ -53,10 +55,13 @@ public class Turret : MonoBehaviour
     }
 
     public bool CanSeeTarget(Vector3 direction, Vector3 origin, string tag)
-    {
+  {
+        
         RaycastHit hit;
 
-        if (Physics.Raycast(origin,direction, out hit, Mathf.Infinity,layerMask))
+
+
+        if (Physics.Raycast(origin,direction, out hit, Mathf.Infinity))
         {
             if (hit.collider.tag == tag)
             {
@@ -72,6 +77,8 @@ public class Turret : MonoBehaviour
         Quaternion headingDirection = Quaternion.FromToRotation(projectile.transform.forward, GunBarrels[index].forward);
 
         Instantiate(projectile, GunBarrels[index].position, headingDirection).GetComponent<Projectile>().Direction = GunBarrels[index].forward;
+
+
     }
     public void ChangeState(TurretState newState)
     {

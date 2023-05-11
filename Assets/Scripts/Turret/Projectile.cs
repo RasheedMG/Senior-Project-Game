@@ -5,7 +5,9 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField]
-    private float speed;
+    public float speed = 25;
+    [SerializeField] 
+    public float ProjectileDamage =10;
 
     public Vector3 Direction { get; set; }
 
@@ -21,4 +23,14 @@ public class Projectile : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    void OnCollisionEnter(Collision col)
+    {
+        Player player = col.collider.gameObject.GetComponent<Player>();
+        if (player)
+        {
+            player.TakeDamage((ProjectileDamage));
+        }
+    }
+
 }

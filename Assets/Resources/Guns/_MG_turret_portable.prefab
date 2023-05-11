@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1102016644487652923}
   - component: {fileID: 1102016644491077145}
   - component: {fileID: 1102016644489946329}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Swivel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2632949576121266208}
   - component: {fileID: 5955143402979130685}
   - component: {fileID: 7894003326657420619}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: _MG_turret_portable
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5005,7 +5005,7 @@ GameObject:
   - component: {fileID: 1102016644487652927}
   - component: {fileID: 1102016644491077149}
   - component: {fileID: 1102016644489946333}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: MGMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}

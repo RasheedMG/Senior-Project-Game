@@ -250,9 +250,9 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -5150,16 +5150,16 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8197842446940986545}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 0.1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -10149,7 +10149,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -15423,9 +15423,9 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -20208,13 +20208,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8201518614760148427}
-  - component: {fileID: 8080557966652704523}
   - component: {fileID: 8294252488656342283}
-  - component: {fileID: 8094236790755129659}
   - component: {fileID: 1244984162543357672}
   m_Layer: 0
   m_Name: GatelingGun_Yellow_L3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20235,19 +20233,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &8080557966652704523
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8198424242655086639}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!205 &8294252488656342283
 LODGroup:
   m_ObjectHideFlags: 0
@@ -20287,24 +20272,6 @@ LODGroup:
     - renderer: {fileID: 8184165027899650201}
     - renderer: {fileID: 8184599006606901901}
   m_Enabled: 1
---- !u!114 &8094236790755129659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8198424242655086639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 918170c09d88a7f47991f97e2ae42f62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  go_baseRotation: {fileID: 8200797829226084987}
-  go_GunBody: {fileID: 8201317956567542071}
-  go_barrel: {fileID: 8201598414407912703}
-  barrelRotationSpeed: 1000
-  firingRange: 10
-  muzzelFlash: {fileID: 8286834952882362753}
 --- !u!82 &1244984162543357672
 AudioSource:
   m_ObjectHideFlags: 0

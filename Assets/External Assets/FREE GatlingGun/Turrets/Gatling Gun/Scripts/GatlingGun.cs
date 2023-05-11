@@ -29,7 +29,7 @@ public class GatlingGun : MonoBehaviour
     void Start()
     {
         // Set the firing range distance
-        this.GetComponent<SphereCollider>().radius = firingRange;
+        //this.GetComponent<SphereCollider>().radius = firingRange;
     }
 
     void Update()

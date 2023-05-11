@@ -15,7 +15,7 @@ MonoBehaviour:
   ImpactType: {fileID: 0}
   Type: 6
   Name: Rail Gun
-  icon: {fileID: -1720224503643284101, guid: 2262f408278271248889a3ea3c7e75bf, type: 3}
+  icon: {fileID: 21300000, guid: c9510d9e2eb5d6b4fa5c94806acbe414, type: 3}
   ModelPrefab: {fileID: 3181634386894688388, guid: 91ecb03d3594c8e4d9177c9fc615f2b8, type: 3}
   SpawnPoint: {x: 0, y: 7, z: 0}
   SpawnRotation: {x: 0, y: 0, z: 0}

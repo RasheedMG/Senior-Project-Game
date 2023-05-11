@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2588798697382978138}
   - component: {fileID: 2564318505859053378}
   - component: {fileID: 2572330739286836318}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: PylonElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2588798693947701826}
   - component: {fileID: 2564318507029713080}
   - component: {fileID: 2572330736871283226}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Pylon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 2588798700255972696}
   - component: {fileID: 2564318508349978518}
   - component: {fileID: 2572330738701891584}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 5932910024330137332}
   - component: {fileID: 6946611887930469247}
   - component: {fileID: 6000597788920781442}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Turret 1a
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5174,7 +5174,7 @@ GameObject:
   - component: {fileID: 2588798701526564774}
   - component: {fileID: 2564318507267808560}
   - component: {fileID: 2572330738596594248}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: BaseElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5257,7 +5257,7 @@ GameObject:
   - component: {fileID: 2588798698839653450}
   - component: {fileID: 2564318508664296080}
   - component: {fileID: 2572330738901257118}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
