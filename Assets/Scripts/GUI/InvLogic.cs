@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LlamAcademy.Guns.Demo;
+using LlamAcademy.Guns;
 using TMPro;
 public class InvLogic : MonoBehaviour
 {
@@ -10,9 +12,13 @@ public class InvLogic : MonoBehaviour
     public GameObject newItem;
     public GameObject inv;
     public GameObject achievementPopup;
+    private GameObject[] items;
+    private int[] counters;
+    private PlayerGunSelector gunSelector;
     void Awake()
     {
         invMenu = GetComponentInChildren<CanvasGroup>();
+        gunSelector = GameObject.Find("Player").GetComponent<PlayerGunSelector>();
     }
 
     void Start()
@@ -33,8 +39,9 @@ public class InvLogic : MonoBehaviour
     public void OnInventoryOpen()
     {
         cameraController.enabled = cameraController.enabled ? false : true;
-        invMenu.alpha = invMenu.alpha > 0 ? 0 : 1;
-        invMenu.blocksRaycasts = invMenu.blocksRaycasts ? false : true;
+        inv.SetActive(!inv.activeSelf);
+        //invMenu.alpha = invMenu.alpha > 0 ? 0 : 1;
+        //invMenu.blocksRaycasts = invMenu.blocksRaycasts ? false : true;
         Time.timeScale = Time.timeScale > 0 ? 0 : 1;
     }
 
@@ -56,6 +63,26 @@ public class InvLogic : MonoBehaviour
             item.name = itemName;
             item.GetComponentInChildren<TextMeshProUGUI>().text = "1";
         }
+    }
+    [ContextMenu("Save Game")]
+    public void save()
+    {
+        items = GameObject.FindGameObjectsWithTag("Item");
+        List<SaveItem> saveItems = new List<SaveItem>();
+        List<GunScriptableObject> gunList = gunSelector.instancedGuns;
+
+        PlayerDataManager.currentProf.currency = int.Parse(items[0].GetComponentInChildren<TextMeshProUGUI>().text);
+        for (int i = 1; i < items.Length; i++)
+        {
+            saveItems.Add(new SaveItem(items[i].name, int.Parse(items[i].GetComponentInChildren<TextMeshProUGUI>().text)));
+        }
+        PlayerDataManager.currentProf.items = saveItems;
+
+        foreach (GunScriptableObject gun in gunList)
+        {
+            PlayerDataManager.currentProf.setAmmo(gun.Name, gun.AmmoConfig.CurrentClipAmmo);
+        }
+        SaveManager.SaveData(PlayerDataManager.currentProf);
     }
 
 }

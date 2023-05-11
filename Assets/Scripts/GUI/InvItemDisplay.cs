@@ -15,6 +15,7 @@ public class InvItemDisplay : MonoBehaviour
         string path = "Items/" + gameObject.name;
         item = Resources.Load<Item>(path);
         Icon.sprite = item.icon;
+        gameObject.tag = "Item";
         if (!gameObject.name.Equals("Currency"))
                 counter.text = PlayerDataManager.currentProf.getItem(item.itemName).count.ToString();
         else

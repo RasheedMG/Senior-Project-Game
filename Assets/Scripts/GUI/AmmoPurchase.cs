@@ -43,7 +43,7 @@ public class AmmoPurchase : MonoBehaviour, IPointerClickHandler
                 limit = int.Parse(currentAmmo.text.Substring(index+1))-finalAmmo;
                 string ammoDisplay = finalAmmo.ToString()+currentAmmo.text.Substring(index);
                 currentAmmo.text = ammoDisplay;
-                PlayerDataManager.currentProf.setAmmo(weapon.Type.ToString(),finalAmmo);
+                PlayerDataManager.currentProf.setAmmo(weapon.name.ToString(),finalAmmo);
                 slider.value = 0;
                 slider.maxValue = limit;
                 price.text = "";

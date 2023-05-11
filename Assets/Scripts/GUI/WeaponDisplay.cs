@@ -13,9 +13,9 @@ public class WeaponDisplay : MonoBehaviour
     public Image icon;
     void Awake()
     {
-        weaponName.text = weapon.name.ToString();
+        weaponName.text = weapon.name;
         icon.sprite = weapon.icon;
-        if (PlayerDataManager.currentProf.hasWeapon(weapon.Type.ToString()))
+        if (PlayerDataManager.currentProf.hasWeapon(weapon.name))
         {
             gameObject.SetActive(false);
             ammoPanel.SetActive(true);

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 namespace LlamAcademy.Guns.Demo
@@ -28,7 +29,6 @@ namespace LlamAcademy.Guns.Demo
         [Header("Runtime Filled")]
         public GunScriptableObject ActiveGun;
 
-
         private void Awake()
         {
            GunScriptableObject gun = Guns.Find(gun => gun.Type == Gun);
@@ -44,6 +44,7 @@ namespace LlamAcademy.Guns.Demo
             foreach (GunScriptableObject gun in Guns)
             {
                 var instantatedGun = gun.Clone() as GunScriptableObject;
+                //instantatedGun.AmmoConfig.CurrentClipAmmo = PlayerDataManager.currentProf.getWeapon(instantatedGun.Name).currentAmmo;
                 instancedGuns.Add(instantatedGun);
                 instantatedGun.Spawn(GunParent, this, Camera);
                 instantatedGun.RecursiveMeshControl(false);
