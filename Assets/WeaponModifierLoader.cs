@@ -11,7 +11,7 @@ public class WeaponModifierLoader : MonoBehaviour
 
         [SerializeField]
         private PlayerGunSelector GunSelector;
-        [SerializeField] float damageMod = 1f;
+        [SerializeField] public float damageMod = 1f;
         [SerializeField] float spreadMod = 1f;
     [SerializeField] float fireRateMod = 1f;
     int gunpowderUpgradeCount; // damage
@@ -95,7 +95,7 @@ private void UpdateFireRateModifier(float fireRateMod)
             }
         }
 
-        private void UpdateDamageModifier(float damageMod)
+        public void UpdateDamageModifier(float damageMod)
         {
             DamageModifier damageModifier = new()
             {
