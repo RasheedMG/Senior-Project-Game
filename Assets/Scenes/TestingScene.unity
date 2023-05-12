@@ -18689,6 +18689,7 @@ GameObject:
   - component: {fileID: 3629945705768767233}
   - component: {fileID: 3629945705768767235}
   - component: {fileID: 3629945705768767234}
+  - component: {fileID: 3629945705768767236}
   m_Layer: 5
   m_Name: Weapon Icon
   m_TagString: Untagged
@@ -18754,6 +18755,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3629945705768767232}
   m_CullTransparentMesh: 1
+--- !u!114 &3629945705768767236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3629945705768767232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3a179ff03c6cd4c98767cf154324c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GunSelector: {fileID: 1730275664}
+  image: {fileID: 3629945705768767234}
 --- !u!1 &3629945706229802579
 GameObject:
   m_ObjectHideFlags: 0
