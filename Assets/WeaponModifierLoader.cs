@@ -41,15 +41,10 @@ public class WeaponModifierLoader : MonoBehaviour
                 damageMod = CalaculateModifier(muzzleUpgradeCount, firerateMultiplierPerUpgrade);
         */
 
-        /*Debug.Log(muzzleUpgradeCount);
-
-        Debug.Log(GunSelector.ActiveGun.ShootConfig.Spread);*/
 
         UpdateDamageModifier(damageMod);
         UpdateSpreadModifier(spreadMod);
 
-        /*Debug.Log(GunSelector.ActiveGun.ShootConfig.Spread);
-        Debug.Log(spreadMod);*/
 
     }
 

@@ -13,8 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] public float PlayerArmourMax = 10;
     public float PlayerArmourCurrent = 10;
 
-    [SerializeField] float shieldRegenerationRate = 2f;
-    [SerializeField] float shieldRegenerationDelay = 2f;
+    [SerializeField] public float shieldRegenerationRate = 2f;
+    [SerializeField] public float shieldRegenerationDelay = 2f;
 
     private bool startRegenerationDelay = false;
     private float currentRegenerationDelay;
@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
 
     public void Awake()
     {
+
         currentRegenerationDelay = shieldRegenerationDelay;
     }
 
