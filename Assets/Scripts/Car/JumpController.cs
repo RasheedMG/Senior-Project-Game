@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class JumpController : MonoBehaviour
 {
@@ -33,6 +34,12 @@ public class JumpController : MonoBehaviour
 
     private int jumpsAvailable;
     private bool carIsGrounded = true;
+    
+    /*[SerializeField] private float antiRollScale = 10f;
+    [SerializeField] private float antiRollSpeed = 10f;*/
+    
+    /*private float xAntiForce;
+    private float zAntiForce;*/
 
     private void Awake()
     {
@@ -111,7 +118,33 @@ public class JumpController : MonoBehaviour
         startJumpTimer = true;
         carIsGrounded = false;
         AudioSystem.Instance.PlayEffect("Jump");
+        car.freezeRotation = true;
     }
+
+    /*private void ToggleMidAirAntiRoll()
+    {
+        float ConvertToNegative180to180(float input)
+        {
+            if (input > 180f)
+            {
+                return input - 360f;
+            }
+            else
+            {
+                return input;
+            }
+        }
+        
+        var rotation = car.rotation;
+        float xRotation = ConvertToNegative180to180(rotation.eulerAngles.x);
+        float zRotation = ConvertToNegative180to180(rotation.eulerAngles.z);
+
+        xAntiForce = Mathf.MoveTowardsAngle(xRotation, 0, Time.deltaTime * antiRollSpeed);
+        zAntiForce = Mathf.MoveTowardsAngle(zRotation, 0, Time.deltaTime * antiRollSpeed);
+    
+        car.AddTorque(new Vector3(-xAntiForce, 0, -zAntiForce) * antiRollScale, ForceMode.VelocityChange);
+    }*/
+    
 
     private void StopJump()
     {
@@ -120,6 +153,7 @@ public class JumpController : MonoBehaviour
         currentJumpTimer = maxJumpTime;
         startJumpTimer = false;
         startjumpResetTimer = true;
+        car.freezeRotation = false;
     }
 
     public void OnJump(InputAction.CallbackContext context)

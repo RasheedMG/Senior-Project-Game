@@ -27,7 +27,7 @@ namespace LlamAcademy.Guns.Demo
             }
             else
 
-            AmmoText.SetText(
+                AmmoText.SetText(
                $"{GunSelector.ActiveGun.AmmoConfig.CurrentClipAmmo} / "
                + $"{GunSelector.ActiveGun.AmmoConfig.CurrentAmmo}"
            );
