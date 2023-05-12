@@ -14,45 +14,18 @@ namespace LlamAcademy.Guns.Demo
         private Transform GunParent;
         [SerializeField]
         private List<GunScriptableObject> Guns;
-
-
+        
         [SerializeField]
         public List<GunScriptableObject> instancedGuns;
+
+        private int index = 0;
 
 
         [Space]
         [Header("Runtime Filled")]
         public GunScriptableObject ActiveGun;
-        
-        private void Awake()
-        {
-           GunScriptableObject gun = Guns.Find(gun => gun.Type == Gun);
 
-            IKMagic();
-            InitilizeGuns();
-
-            EquipWeapon(instancedGuns[0]);
-        }
-
-        private void InitilizeGuns()
-        {
-            foreach (GunScriptableObject gun in Guns)
-            {
-                var instantatedGun = gun.Clone() as GunScriptableObject;
-                //instantatedGun.AmmoConfig.CurrentClipAmmo = PlayerDataManager.currentProf.getWeapon(instantatedGun.Name).currentAmmo;
-                instancedGuns.Add(instantatedGun);
-                instantatedGun.Spawn(GunParent, this, Camera);
-                instantatedGun.RecursiveMeshControl(false);
-            }
-        }
-
-        private void IKMagic()
-        {
-            Transform[] allChildren = GunParent.GetComponentsInChildren<Transform>();
-
-        }
-
-        private void EquipWeapon(GunScriptableObject gun)
+        public void EquipWeapon(GunScriptableObject gun)
         {
 
             if (gun == null)
@@ -67,36 +40,31 @@ namespace LlamAcademy.Guns.Demo
             ActiveGun = gun;
             ActiveGun.RecursiveMeshControl(true);
 
-
         }
 
-        private void Update()
+        public void OnSwitchWeapon(InputAction.CallbackContext context)
         {
-              if (Keyboard.current.digit1Key.wasReleasedThisFrame)
-              {
-                    EquipWeapon(instancedGuns[0]);
+            float input = context.ReadValue<float>();
 
-              }
-             if (Keyboard.current.digit2Key.wasReleasedThisFrame)
+            if (context.performed) 
+            {
+                if (input > 0)
                 {
-                EquipWeapon(instancedGuns[1]);
 
+                    index++;
+                    if (index > instancedGuns.Count - 1)
+                        index = 0;
                 }
-            if (Keyboard.current.digit3Key.wasReleasedThisFrame)
-            {
-                EquipWeapon(instancedGuns[2]);
-
+                else if (input < 0)
+                {
+                    index--;
+                    if (index < 0)
+                        index = instancedGuns.Count - 1;
+                }
+                EquipWeapon(instancedGuns[index]);
             }
-            if (Keyboard.current.digit4Key.wasReleasedThisFrame)
-            {
-                EquipWeapon(instancedGuns[3]);
+        
 
-            }
-            if (Keyboard.current.digit5Key.wasReleasedThisFrame)
-            {
-                EquipWeapon(instancedGuns[4]);
-
-            }
         }
 
 

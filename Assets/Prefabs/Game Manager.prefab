@@ -283,6 +283,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: edd09b3a-9167-4f7b-b93f-45b9dc091146
     m_ActionName: Player/Inventory Menu[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LlamAcademy.Guns.Demo.PlayerGunSelector, LlamAcademy.Guns.Demo
+        m_MethodName: OnSwitchWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 93064621-e01a-4d36-b7f2-9133c2b8ca0e
+    m_ActionName: Player/Switch Weapon[/Mouse/scroll/up,/Mouse/scroll/down]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

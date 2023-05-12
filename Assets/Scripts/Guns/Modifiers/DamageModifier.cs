@@ -17,6 +17,8 @@ namespace LlamAcademy.Guns.Modifiers
 
                 switch (damageCurve.mode)
                 {
+                    // switch from *= to = wont work proparly.
+
                     case UnityEngine.ParticleSystemCurveMode.TwoConstants:
                         damageCurve.constantMin *= Amount;
                         damageCurve.constantMax *= Amount;
