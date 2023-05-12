@@ -13,6 +13,7 @@ public class WeaponModifierLoader : MonoBehaviour
         private PlayerGunSelector GunSelector;
         [SerializeField] float damageMod = 1f;
         [SerializeField] float spreadMod = 1f;
+    [SerializeField] float fireRateMod = 1f;
     int gunpowderUpgradeCount; // damage
     int barrelUpgradeCount; // Firerate
     int muzzleUpgradeCount; // Spread
@@ -20,7 +21,7 @@ public class WeaponModifierLoader : MonoBehaviour
 
     [SerializeField]float damageMultiplierPerUpgrade = 0.05f;
     [SerializeField]float SpreadMultiplierPerUpgrade = -0.05f;
-    [SerializeField]float firerateMultiplierPerUpgrade;
+    [SerializeField]float firerateMultiplierPerUpgrade = 0.05f;
 
 
         private void Start()
@@ -37,16 +38,23 @@ public class WeaponModifierLoader : MonoBehaviour
         spreadMod += CalaculateModifier(muzzleUpgradeCount, SpreadMultiplierPerUpgrade);
 
 
-        /*        gunpowderUpgradeCount = GetUpgradeCount("Barrel");
-                damageMod = CalaculateModifier(muzzleUpgradeCount, firerateMultiplierPerUpgrade);
-        */
+        barrelUpgradeCount = PlayerDataManager.currentProf.GetUpgradeCount("Barrel");
+        fireRateMod += CalaculateModifier(barrelUpgradeCount, firerateMultiplierPerUpgrade);
+
+
+
+
+
 
 
         UpdateDamageModifier(damageMod);
         UpdateSpreadModifier(spreadMod);
+        UpdateFireRateModifier(fireRateMod);
+
 
 
     }
+
 
     private float CalaculateModifier(int upgradeCount, float multiplierPerUpgrade)
         {
@@ -55,6 +63,24 @@ public class WeaponModifierLoader : MonoBehaviour
         }
 
 
+
+
+
+
+
+
+private void UpdateFireRateModifier(float fireRateMod)
+{
+   /*     DamageModifier damageModifier = new()
+        {
+            Amount = damageMod,
+            AttributeName = "DamageConfig/DamageCurve"
+        };*/
+        foreach (GunScriptableObject gun in GunSelector.instancedGuns)
+        {
+            gun.ShootConfig.FireRate /= fireRateMod; //damageModifier.Apply(gun);
+        }
+    }
 
     private void UpdateSpreadModifier(float spreadMod)
         {

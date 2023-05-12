@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852ca40c648fa6d4d9d88abd8ef71f6d, type: 3}
   m_Name: Machine_Ammo
   m_EditorClassIdentifier: 
-  MaxAmmo: 1000
-  ClipSize: 1000
-  CurrentAmmo: 1000
-  CurrentClipAmmo: 1000
+  MaxAmmo: 1000000
+  ClipSize: 1000000
+  CurrentAmmo: 1000000
+  CurrentClipAmmo: 1000000

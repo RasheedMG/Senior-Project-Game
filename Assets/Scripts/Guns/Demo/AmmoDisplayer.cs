@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 namespace LlamAcademy.Guns.Demo
@@ -21,6 +21,12 @@ namespace LlamAcademy.Guns.Demo
 
         private void Update()
         {
+            if (GunSelector.ActiveGun.Name.Equals("Machine Gun"))
+            {
+                AmmoText.SetText("∞");
+            }
+            else
+
             AmmoText.SetText(
                $"{GunSelector.ActiveGun.AmmoConfig.CurrentClipAmmo} / "
                + $"{GunSelector.ActiveGun.AmmoConfig.CurrentAmmo}"

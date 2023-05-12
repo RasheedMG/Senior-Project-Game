@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852ca40c648fa6d4d9d88abd8ef71f6d, type: 3}
   m_Name: MiniGun_ammo
   m_EditorClassIdentifier: 
-  MaxAmmo: 5000
-  ClipSize: 5000
-  CurrentAmmo: 5000
-  CurrentClipAmmo: 5000
+  MaxAmmo: 10000
+  ClipSize: 10000
+  CurrentAmmo: 10000
+  CurrentClipAmmo: 10000
