@@ -27,13 +27,13 @@ public class WeaponModifierLoader : MonoBehaviour
         {
 
 
-        gunpowderUpgradeCount = GetUpgradeCount("Gunpowder");
+        gunpowderUpgradeCount = PlayerDataManager.currentProf.GetUpgradeCount("Gunpowder");
         damageMod += CalaculateModifier(gunpowderUpgradeCount, damageMultiplierPerUpgrade);
 
 
 
 
-        muzzleUpgradeCount = GetUpgradeCount("Muzzel");
+        muzzleUpgradeCount = PlayerDataManager.currentProf.GetUpgradeCount("Muzzel");
         spreadMod += CalaculateModifier(muzzleUpgradeCount, SpreadMultiplierPerUpgrade);
 
 
@@ -51,18 +51,6 @@ public class WeaponModifierLoader : MonoBehaviour
         Debug.Log(GunSelector.ActiveGun.ShootConfig.Spread);
         Debug.Log(spreadMod);
 
-    }
-
-    private int GetUpgradeCount(string upgradeName)
-    {
-       var playerUpgrades = PlayerDataManager.currentProf.getUpgrades();
-        int upgradeCount = 0;
-        foreach (SaveUpgrade upgrade in playerUpgrades)
-        {
-            if (upgrade.title.Equals(upgradeName))
-                upgradeCount = upgrade.count;
-        }
-        return upgradeCount;
     }
 
     private float CalaculateModifier(int upgradeCount, float multiplierPerUpgrade)

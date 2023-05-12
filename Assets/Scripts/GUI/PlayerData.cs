@@ -166,4 +166,21 @@ public class PlayerData
     {
         this.items = items;
     }
+
+    public int GetUpgradeCount(string upgradeName)
+    {
+        int upgradeCount = 0;
+        foreach (SaveUpgrade upgrade in upgrades)
+        {
+            if (upgrade.title.Equals(upgradeName))
+                upgradeCount = upgrade.count;
+        }
+        return upgradeCount;
+    }
+
+
+
+
+
+
 }
