@@ -1984,7 +1984,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-122616
+  m_Name: pb_Mesh-32000
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2727,7 +2727,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-122606
+  m_Name: pb_Mesh-31990
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9593,7 +9593,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-122682
+  m_Name: pb_Mesh-32066
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12150,7 +12150,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-122520
+  m_Name: pb_Mesh-31904
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18734,6 +18734,7 @@ GameObject:
   - component: {fileID: 187330665010083850}
   - component: {fileID: 1016151395221850002}
   - component: {fileID: 8199253056173351119}
+  - component: {fileID: 8199253056173351120}
   m_Layer: 3
   m_Name: Body
   m_TagString: Player
@@ -20940,6 +20941,29 @@ MonoBehaviour:
   Shieldbar: {fileID: 587105944}
   onDeathExplosion: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
   player: {fileID: 1730275661}
+--- !u!114 &8199253056173351120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3018720586991545156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f157150cd3d647d4cbe19b32b0503b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealthMod: 1
+  playerShieldMod: 1
+  playerShieldRateMod: 1
+  playerShieldDelayMod: 1
+  playerArmourMod: 1
+  healthMultiplierPerUpgrade: 0.05
+  shieldMultiplierPerUpgrade: 0.05
+  shieldRateMultiplierPerUpgrade: 0.05
+  shieldDelayMultiplierPerUpgrade: -0.05
+  armourMultiplierPerUpgrade: 0.05
+  player: {fileID: 8199253056173351119}
 --- !u!1 &8288384949622531352
 GameObject:
   m_ObjectHideFlags: 0
