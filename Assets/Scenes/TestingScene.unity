@@ -1133,7 +1133,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80398845}
-  m_LocalRotation: {x: 0.17713176, y: 0.34388837, z: -0.06622685, w: 0.91977125}
+  m_LocalRotation: {x: 0.17713176, y: 0.34388837, z: -0.066226855, w: 0.91977125}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1984,7 +1984,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-71264
+  m_Name: pb_Mesh-122616
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2727,7 +2727,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-71254
+  m_Name: pb_Mesh-122606
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9593,7 +9593,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-71330
+  m_Name: pb_Mesh-122682
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10673,8 +10673,8 @@ GameObject:
   - component: {fileID: 1730275664}
   - component: {fileID: 1730275663}
   - component: {fileID: 1730275665}
-  - component: {fileID: 1730275666}
   - component: {fileID: 1730275667}
+  - component: {fileID: 1730275668}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -10748,20 +10748,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gunSelector: {fileID: 1730275664}
---- !u!114 &1730275666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1730275661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f77ce24d7e033cc4a8e7a526d4cfb163, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GunSelector: {fileID: 1730275664}
-  damage: 10
 --- !u!114 &1730275667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10783,6 +10769,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4f18ac4ce6c3bd548878cad8fa0efd16, type: 2}
   GunParent: {fileID: 1813262796}
   Camera: {fileID: 422108395}
+--- !u!114 &1730275668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730275661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab48671836d8f8144a23492565d65c6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GunSelector: {fileID: 1730275664}
+  damageMod: 1
+  spreadMod: 1
+  damageMultiplierPerUpgrade: 0.05
+  SpreadMultiplierPerUpgrade: -0.05
+  firerateMultiplierPerUpgrade: 0
 --- !u!1 &1740047290
 GameObject:
   m_ObjectHideFlags: 0
@@ -12146,7 +12150,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-71168
+  m_Name: pb_Mesh-122520
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Muzzel
   m_EditorClassIdentifier: 
   title: Muzzel
-  desc: Increases weapon range by 5%
+  desc: Increases weapon Accuracy by 5%
   upgradeCount: 6
   price: 10

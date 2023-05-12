@@ -9,33 +9,44 @@ namespace LlamAcademy.Guns.Demo
     {
         [SerializeField]
         private PlayerGunSelector GunSelector;
-        [SerializeField] float damage = 10f;
+        [SerializeField] float damageMod = 1.2f;
+        [SerializeField] float spreadMod = 1f;
 
         private void Start()
         {
-            UpdateDamageModifier();
+            UpdateDamageModifier(damageMod);
 
-            UpdateSpreedModifier();
+            UpdateSpreadModifier(spreadMod);
+
+
+
         }
 
-        private void UpdateSpreedModifier()
+        private void UpdateSpreadModifier(float spreadMod)
         {
             Vector3Modifier spreadModifier = new()
             {
-                Amount = new Vector3(1.2f, 1.2f, 1.2f),
+                Amount = new Vector3(spreadMod, spreadMod, spreadMod),
                 AttributeName = "ShootConfig/Spread"
             };
-            spreadModifier.Apply(GunSelector.ActiveGun);
+            foreach (GunScriptableObject gun in GunSelector.instancedGuns)
+            {
+                spreadModifier.Apply(gun);
+            }
         }
 
-        private void UpdateDamageModifier()
+        private void UpdateDamageModifier(float damageMod)
         {
             DamageModifier damageModifier = new()
             {
-                Amount = 1.5f,
+                Amount = damageMod,
                 AttributeName = "DamageConfig/DamageCurve"
             };
-            damageModifier.Apply(GunSelector.ActiveGun);
+            foreach(GunScriptableObject gun in GunSelector.instancedGuns)
+            {
+                damageModifier.Apply(gun);
+            }
+            
         }
     }
 }
