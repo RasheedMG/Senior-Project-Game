@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 namespace LlamAcademy.Guns.Demo
@@ -18,8 +15,6 @@ namespace LlamAcademy.Guns.Demo
         [SerializeField]
         private List<GunScriptableObject> Guns;
 
-        
-
 
         [SerializeField]
         public List<GunScriptableObject> instancedGuns;
@@ -28,7 +23,7 @@ namespace LlamAcademy.Guns.Demo
         [Space]
         [Header("Runtime Filled")]
         public GunScriptableObject ActiveGun;
-
+        
         private void Awake()
         {
            GunScriptableObject gun = Guns.Find(gun => gun.Type == Gun);
