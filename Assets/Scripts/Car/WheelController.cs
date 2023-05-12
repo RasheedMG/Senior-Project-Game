@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -33,6 +34,9 @@ public class WheelController : MonoBehaviour
     [SerializeField] public float maxTurnAngle = 30f;
     [SerializeField] public float topSpeed = 150f;
 
+    [SerializeField] private float accelerationMultiplierPerUpgrade = 3f;
+    [SerializeField] private float topSpeedMultiplierPerUpgrade = 5f;
+
     public const float VELOCITY_TO_KMPH_CONVERSION_RATE = 3.6f;
     public float kmph = 0;
 
@@ -50,6 +54,12 @@ public class WheelController : MonoBehaviour
 
         rightBrakelight.SetActive(false);
         leftBrakelight.SetActive(false);
+    }
+
+    private void Start()
+    {
+        acceleration += PlayerDataManager.currentProf.GetUpgradeCount("Power") * accelerationMultiplierPerUpgrade;
+        topSpeed += PlayerDataManager.currentProf.GetUpgradeCount("Engine") * topSpeedMultiplierPerUpgrade;
     }
 
     private void Update()

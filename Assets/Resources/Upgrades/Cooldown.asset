@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Cooldown
   m_EditorClassIdentifier: 
   title: Cooldown
-  desc: Reduces global ability cooldown by 5s
+  desc: Reduces global ability cooldown by 1s
   upgradeCount: 6
   price: 15

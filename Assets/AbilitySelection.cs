@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +11,8 @@ public class AbilitySelection : MonoBehaviour
     [SerializeField] private Transform abilityButtonParent;
     [SerializeField] private Transform equippedAbilityButtonParent;
     [SerializeField] private AbilityHolder abilityHolder;
+    [SerializeField] private float GlobalCooldownModifierPerUpgrade = 1f;
+    [SerializeField] private float GlobalCooldownModifier = 0f;
     
     //[SerializeField] private List<Ability> availableAbilities;
     
@@ -20,6 +24,7 @@ public class AbilitySelection : MonoBehaviour
     {
         abilityButtonTemplate.SetActive(false);
         
+        GlobalCooldownModifier = Mathf.Clamp(PlayerDataManager.currentProf.GetUpgradeCount("Cooldown") * GlobalCooldownModifierPerUpgrade, 0f, 100f);
         PopulateAbilitiesAvailable();
     }
 
@@ -36,7 +41,13 @@ public class AbilitySelection : MonoBehaviour
         foreach (SaveAbility ability in playerAbilities)
         {
             print(ability.abilityName);
-            availableAbilities.Add(Resources.Load<Ability>($"Abilities/{ability.abilityName}"));
+            Ability original = Resources.Load<Ability>($"Abilities/{ability.abilityName}");
+            availableAbilities.Add(original);
+        }
+
+        foreach (Ability ability in availableAbilities)
+        {
+            ability.cooldownTime -= GlobalCooldownModifier;
         }
     }
 
@@ -141,5 +152,13 @@ public class AbilitySelection : MonoBehaviour
 
         // Hide the Ability Selection UI
         HideAbilitySelectionUI();
+    }
+
+    private void OnDisable()
+    {
+        foreach (Ability ability in availableAbilities)
+        {
+            ability.cooldownTime += GlobalCooldownModifier;
+        }
     }
 }

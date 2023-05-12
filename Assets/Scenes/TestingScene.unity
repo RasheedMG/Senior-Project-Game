@@ -1133,7 +1133,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80398845}
-  m_LocalRotation: {x: 0.17713176, y: 0.34388837, z: -0.066226855, w: 0.91977125}
+  m_LocalRotation: {x: 0.17713176, y: 0.34388837, z: -0.06622685, w: 0.91977125}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1984,7 +1984,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-122616
+  m_Name: pb_Mesh-51478
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2394,6 +2394,8 @@ MonoBehaviour:
   breakingForce: 30000
   maxTurnAngle: 30
   topSpeed: 200
+  accelerationMultiplierPerUpgrade: 3
+  topSpeedMultiplierPerUpgrade: 5
   kmph: 0
 --- !u!114 &352780174
 MonoBehaviour:
@@ -2451,6 +2453,7 @@ MonoBehaviour:
   rightNitrous: {fileID: 1671909268}
   leftNitrous: {fileID: 448812398}
   nitroSlider: {fileID: 1448735567}
+  MaxFuelMultiplierPerUpgrade: 1
   car: {fileID: 7495443279951694191}
   currentFuel: 0
 --- !u!114 &352780180
@@ -2727,7 +2730,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-122606
+  m_Name: pb_Mesh-51468
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6106,6 +6109,8 @@ MonoBehaviour:
   abilityButtonParent: {fileID: 900573483}
   equippedAbilityButtonParent: {fileID: 178760125}
   abilityHolder: {fileID: 352780186}
+  GlobalCooldownModifierPerUpgrade: 1
+  GlobalCooldownModifier: 0
 --- !u!4 &829707181
 Transform:
   m_ObjectHideFlags: 0
@@ -9593,7 +9598,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-122682
+  m_Name: pb_Mesh-51544
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10712,6 +10717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GunSelector: {fileID: 1730275664}
   AutoReload: 1
+  wantsToShoot: 0
 --- !u!114 &1730275664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12150,7 +12156,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-122520
+  m_Name: pb_Mesh-51382
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13454,6 +13460,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 352780173}
+    - target: {fileID: 937479343489126049, guid: e875dc0e68b8c704d94b041022694689, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1730275663}
     - target: {fileID: 937479343489126049, guid: e875dc0e68b8c704d94b041022694689, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

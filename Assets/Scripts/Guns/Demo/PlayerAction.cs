@@ -18,12 +18,13 @@ namespace LlamAcademy.Guns.Demo
         [SerializeField]
         private Image Crosshair;*/
         private bool IsReloading;
+        public bool wantsToShoot = false;
 
         private void Update()
         {
             GunSelector.ActiveGun.Tick(
                 !IsReloading
-                && Application.isFocused && Mouse.current.leftButton.isPressed
+                && wantsToShoot
                 && GunSelector.ActiveGun != null
             );
 
@@ -89,6 +90,18 @@ namespace LlamAcademy.Guns.Demo
 /*            InverseKinematics.HandIKAmount = 1f;
             InverseKinematics.ElbowIKAmount = 1f;
             IsReloading = false;*/
+        }
+
+        public void OnFire(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                wantsToShoot = true;
+            }
+            else if (context.canceled)
+            {
+                wantsToShoot = false;
+            }
         }
     }
 }

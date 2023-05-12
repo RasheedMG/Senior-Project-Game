@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
@@ -15,6 +16,7 @@ public class SpeedBoost : MonoBehaviour
     [SerializeField] GameObject leftNitrous;
 
     [SerializeField] Slider nitroSlider;
+    [SerializeField] private float MaxFuelMultiplierPerUpgrade = 1f;
 
     public Rigidbody car;
 
@@ -44,7 +46,13 @@ public class SpeedBoost : MonoBehaviour
         rightNitrous.SetActive(false);
         leftNitrous.SetActive(false);
 
-        nitroSlider.maxValue = maxFuel;
+        //nitroSlider.maxValue = maxFuel;
+    }
+
+    private void Start()
+    {
+        maxFuel += PlayerDataManager.currentProf.GetUpgradeCount("Fuel") * MaxFuelMultiplierPerUpgrade;
+        currentFuel = maxFuel;
     }
 
     void Update()
@@ -82,7 +90,7 @@ public class SpeedBoost : MonoBehaviour
             }
         }
 
-        nitroSlider.value = currentFuel;
+        nitroSlider.value = (currentFuel/maxFuel) * 100f;
     }
 
     private void FixedUpdate()
