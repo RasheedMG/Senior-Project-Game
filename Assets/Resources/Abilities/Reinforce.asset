@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 783c4c0c2dd65c54f90e83854894671e, type: 3}
-  m_Name: Magic Bullet
+  m_Script: {fileID: 11500000, guid: f3d4cd9a9cee6b148899811b52de625d, type: 3}
+  m_Name: Reinforce
   m_EditorClassIdentifier: 
-  name: Magic Bullet
-  cooldownTime: 10
-  activeTime: 0
-  icon: {fileID: 21300000, guid: 045e0595209e4664eae8a86ccca121dd, type: 3}
+  name: Reinforce
+  cooldownTime: 5
+  activeTime: 3
+  icon: {fileID: 21300000, guid: a91fe212915a11e4396a88b43a55f385, type: 3}
   soundEffect: {fileID: 0}
-  bulletVelocity: 0
-  bulletDamage: 0
