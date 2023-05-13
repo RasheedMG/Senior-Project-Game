@@ -1870,6 +1870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemManager: {fileID: 2033187377}
   itemPanel: {fileID: 8763535432755318889, guid: 7027fd103c510ef41bcd25c9da3ad2ae, type: 3}
+  logic: {fileID: 1620097280}
 --- !u!114 &144697139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4221,7 +4222,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5624,9 +5625,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &616534545
 MonoBehaviour:
@@ -6535,6 +6536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 422470587}
   collider: {fileID: 713322805}
+  meshRenderer: {fileID: 0}
   requiresLever: 1
 --- !u!65 &713322805
 BoxCollider:
@@ -9377,7 +9379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!225 &1296746704
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -11442,6 +11444,7 @@ MonoBehaviour:
   newItem: {fileID: 8763535432755318889, guid: 7027fd103c510ef41bcd25c9da3ad2ae, type: 3}
   inv: {fileID: 1296746703}
   achievementPopup: {fileID: 8913588322273689010, guid: 2e8a5af58e818e44995008e95e39b94c, type: 3}
+  itemManager: {fileID: 2033187377}
 --- !u!114 &1620097281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13731,6 +13734,10 @@ MonoBehaviour:
   speedBoost: {fileID: 352780178}
   repairKitHeal: 30
   modKitMultiplier: 2
+  currencyCount: 0
+  modKitCount: 0
+  nitrousGasCount: 0
+  repairKitCount: 0
 --- !u!4 &2033187378
 Transform:
   m_ObjectHideFlags: 0
@@ -20004,11 +20011,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2107891484572508856, guid: 69df7e8493af35f4988da99f1252d432, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2107891484572508856, guid: 69df7e8493af35f4988da99f1252d432, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2107891485262257950, guid: 69df7e8493af35f4988da99f1252d432, type: 3}
       propertyPath: m_Name
@@ -20100,19 +20107,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2107891485268539800, guid: 69df7e8493af35f4988da99f1252d432, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2107891485268539800, guid: 69df7e8493af35f4988da99f1252d432, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2107891485268539800, guid: 69df7e8493af35f4988da99f1252d432, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2107891485312911053, guid: 69df7e8493af35f4988da99f1252d432, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69df7e8493af35f4988da99f1252d432, type: 3}

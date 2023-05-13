@@ -24,11 +24,10 @@ public class ItemManager : MonoBehaviour
     private void LoadSavedItems()
     {
         List<SaveItem> items = PlayerDataManager.currentProf.getItems();
+        currencyCount = PlayerDataManager.currentProf.currency;
         foreach (SaveItem item in items)
         {
-            if (item.itemName == "Currency")
-                currencyCount = item.count;
-            else if (item.itemName == "Mod Kit")
+                 if (item.itemName == "Mod Kit")
                 modKitCount = item.count;
             else if (item.itemName == "Nitrous Gas")
                 nitrousGasCount = item.count;
@@ -37,6 +36,34 @@ public class ItemManager : MonoBehaviour
         }
     }
 
+    public List<SaveItem> getItems()
+    {
+        List<SaveItem> items = new List<SaveItem>();
+            items.Add(new SaveItem("Repair Kit",repairKitCount));
+            items.Add(new SaveItem("Nitrous Gas", nitrousGasCount));
+            items.Add(new SaveItem("Mod Kit", modKitCount));
+        return items;
+    }
+
+    public int getCurrency()
+    {
+        return currencyCount;
+    }
+
+    public int getCount(string itemName)
+    {
+        switch (itemName)
+        {
+            case "Mod Kit":
+                return modKitCount;
+            case "Nitrous Gas":
+                return nitrousGasCount;
+            case "Repair Kit":
+                return repairKitCount;
+            default:
+                return 0;
+        }
+    }
 
     public void useItem(Item item)
     {
@@ -56,6 +83,24 @@ public class ItemManager : MonoBehaviour
             case "Repair Kit":
                 Debug.Log("Repair Kit");
                 player.Heal(repairKitHeal);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void incrementItem(string itemName)
+    {
+        switch (itemName)
+        {
+            case "Mod Kit":
+                modKitCount++;
+                break;
+            case "Nitrous Gas":
+                nitrousGasCount++;
+                break;
+            case "Repair Kit":
+                repairKitCount++;
                 break;
             default:
                 break;

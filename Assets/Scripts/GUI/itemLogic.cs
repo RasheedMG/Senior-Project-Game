@@ -18,8 +18,8 @@ public class itemLogic : MonoBehaviour
 
         if (other.gameObject.layer==3)
         {
-            Destroy(this.gameObject);
             logic.ItemPickup(itemName);
+            Destroy(this.gameObject);
         }
     }
 

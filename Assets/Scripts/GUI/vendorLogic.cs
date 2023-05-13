@@ -111,6 +111,18 @@ public class vendorLogic : MonoBehaviour
         achievement.name = "Getting Stronger";
     }
 
+    public void LockedAndLoaded()
+    {
+        GameObject achievement = Instantiate(achievementPopup, gameObject.transform);
+        achievement.name = "Locked and Loaded";
+    }
+
+    public void Versatile()
+    {
+        GameObject achievement = Instantiate(achievementPopup, gameObject.transform);
+        achievement.name = "Versatile";
+    }
+
     public void Save()
     {
         PlayerDataManager.currentProf.currency = int.Parse(currency.text);
