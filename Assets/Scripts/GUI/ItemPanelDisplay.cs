@@ -7,15 +7,25 @@ public class ItemPanelDisplay : MonoBehaviour
 {
     [SerializeField] public ItemManager itemManager;
     public GameObject itemPanel;
-    void Awake()
+    public InvLogic logic;
+    void Start()
     {
-        List<SaveItem> items = PlayerDataManager.currentProf.getItems();
         GameObject currency = Instantiate(itemPanel, this.transform);
         currency.name = "Currency";
+        displayItems(itemManager.getItems());
+    }
+
+    public void displayItems(List<SaveItem> items)
+    {
         for (int i = 0; i < items.Count; i++)
         {
-            GameObject item = Instantiate(itemPanel, this.transform);
-            item.name = items[i].itemName;
+            displayItem(items, i);
         }
+    }
+
+    public void displayItem(List<SaveItem> items, int i)
+    {
+        GameObject item = Instantiate(itemPanel, this.transform);
+        item.name = items[i].itemName;
     }
 }

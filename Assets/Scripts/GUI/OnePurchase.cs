@@ -24,7 +24,11 @@ public class OnePurchase : MonoBehaviour, IPointerClickHandler
         {
             PlayerDataManager.currentProf.abilities.Add(new SaveAbility(panelAbility.text));
             panel.SetActive(false);
-
+            if (!PlayerPrefs.HasKey("Versatile"))
+            {
+                PlayerPrefs.SetInt("Versatile",-1);
+                logic.Versatile();
+            }
         }
     }
 }

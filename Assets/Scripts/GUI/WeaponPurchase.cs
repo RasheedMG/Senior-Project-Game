@@ -24,7 +24,12 @@ public class WeaponPurchase : MonoBehaviour, IPointerClickHandler
         if (logic.purchase(itemPrice)) {
             PlayerDataManager.currentProf.weapons.Add(new SaveWeapon(weapon.name, weapon.AmmoConfig.MaxAmmo));
             weaponPanel.SetActive(false);
-            ammoPanel.SetActive(true); 
+            ammoPanel.SetActive(true);
+            if (!PlayerPrefs.HasKey("Locked and Loaded"))
+            {
+                PlayerPrefs.SetInt("Locked and Loaded", -1);
+                logic.LockedAndLoaded();
+            }
         }
     }
 }

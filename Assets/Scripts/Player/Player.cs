@@ -27,10 +27,11 @@ public class Player : MonoBehaviour
 
     [SerializeField] private GameObject onDeathExplosion;
     [SerializeField] private GameObject player;
+    private InvLogic logic;
 
     public void Awake()
     {
-
+        logic = transform.root.GetComponentInChildren<InvLogic>();
         currentRegenerationDelay = shieldRegenerationDelay;
     }
 
@@ -131,6 +132,11 @@ public class Player : MonoBehaviour
 
     public void Defeated()
     {
+        if(!PlayerPrefs.HasKey("Skill Issue"))
+        {
+            PlayerPrefs.SetInt("Skill Issue", -1);
+            logic.firstDeath();
+        }
         player.SetActive(false);
 
         AudioSystem.Instance.PlaySoundAtPoint("Car Explosion", transform.position);

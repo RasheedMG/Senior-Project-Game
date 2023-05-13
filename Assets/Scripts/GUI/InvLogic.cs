@@ -13,8 +13,8 @@ public class InvLogic : MonoBehaviour
     public GameObject inv;
     public GameObject achievementPopup;
     private GameObject[] items;
-    private int[] counters;
     private PlayerGunSelector gunSelector;
+    public ItemManager itemManager;
     void Awake()
     {
         invMenu = GetComponentInChildren<CanvasGroup>();
@@ -23,6 +23,7 @@ public class InvLogic : MonoBehaviour
 
     void Start()
     {
+        inv.SetActive(false);
         if (!PlayerPrefs.HasKey("1st Steps"))
         {
         PlayerPrefs.SetInt("1st Steps", -1);
@@ -36,6 +37,12 @@ public class InvLogic : MonoBehaviour
         achievement.name = "1st Steps";
     }
 
+    public void firstDeath()
+    {
+        GameObject achievement = Instantiate(achievementPopup, gameObject.transform);
+        achievement.name = "Skill Issue";
+    }
+
     public void OnInventoryOpen()
     {
         cameraController.enabled = cameraController.enabled ? false : true;
@@ -47,35 +54,13 @@ public class InvLogic : MonoBehaviour
 
     public void ItemPickup(string itemName)
     {
-        Transform[] ts = itemPanel.GetComponentsInChildren<Transform>();
-        bool exists = true;
-        foreach (Transform t in ts)
-        {
-            if (t.name.Equals(itemName))
-            {
-                t.GetComponentInChildren<TextMeshProUGUI>().text = (int.Parse(t.GetComponentInChildren<TextMeshProUGUI>().text) + 1).ToString();
-                exists = false;
-            }
-        }
-        if (exists)
-        {
-            GameObject item = Instantiate(newItem, itemPanel.transform);
-            item.name = itemName;
-            item.GetComponentInChildren<TextMeshProUGUI>().text = "1";
-        }
+        itemManager.incrementItem(itemName);
     }
     [ContextMenu("Save Game")]
     public void save()
     {
-        items = GameObject.FindGameObjectsWithTag("Item");
-        List<SaveItem> saveItems = new List<SaveItem>();
+        List<SaveItem> saveItems = itemManager.getItems();
         List<GunScriptableObject> gunList = gunSelector.instancedGuns;
-
-        PlayerDataManager.currentProf.currency = int.Parse(items[0].GetComponentInChildren<TextMeshProUGUI>().text);
-        for (int i = 1; i < items.Length; i++)
-        {
-            saveItems.Add(new SaveItem(items[i].name, int.Parse(items[i].GetComponentInChildren<TextMeshProUGUI>().text)));
-        }
         PlayerDataManager.currentProf.items = saveItems;
 
         foreach (GunScriptableObject gun in gunList)

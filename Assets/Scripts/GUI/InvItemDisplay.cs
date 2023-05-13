@@ -7,6 +7,7 @@ using TMPro;
 
 public class InvItemDisplay : MonoBehaviour
 {
+    private InvLogic logic;
     public Item item;
     public Image Icon;
     public TextMeshProUGUI counter;
@@ -15,6 +16,7 @@ public class InvItemDisplay : MonoBehaviour
     private void Awake()
     {
         itemManager = GetComponentInParent<ItemPanelDisplay>().itemManager;
+        
     }
 
     void Start()
@@ -22,13 +24,26 @@ public class InvItemDisplay : MonoBehaviour
         string path = "Items/" + gameObject.name;
         item = Resources.Load<Item>(path);
         Icon.sprite = item.icon;
-        //gameObject.tag = "Item";
         Button button = GetComponent<Button>();
         button.onClick.AddListener(() => useItem());
+        updateInventory();
+    }
+
+    void OnEnable()
+    {
+        updateInventory();
+    }
+
+    public void updateInventory()
+    {
         if (!gameObject.name.Equals("Currency"))
-                counter.text = PlayerDataManager.currentProf.getItem(item.itemName).count.ToString();
+        {
+            counter.text = itemManager.getCount(gameObject.name).ToString();
+        }
         else
-            counter.text = PlayerDataManager.currentProf.currency.ToString();
+        {
+            counter.text = itemManager.getCurrency().ToString();
+        }
     }
 
     public void useItem()
@@ -41,10 +56,6 @@ public class InvItemDisplay : MonoBehaviour
             {
                 itemManager.useItem(item);
                 counter.text = (itemCount - 1).ToString();
-                if (itemCount - 1 <= 0)
-                {
-                    Destroy(gameObject);
-                }
             }
         }
     }
