@@ -4,14 +4,22 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField] private InvLogic invLogic;
+    
     public GameState State;
 
     public static event Action<GameState> OnBeforeStateChanged;
     public static event Action<GameState> OnAfterStateChanged;
 
-    private void Start()
+    protected override void Awake()
     {
-        
+        base.Awake();
+        SceneManager.sceneLoaded += GetInventory;
+    }
+
+    private void GetInventory(Scene arg0, LoadSceneMode loadSceneMode)
+    {
+        invLogic = FindObjectOfType<InvLogic>();
     }
 
     public void LoadLevel(string SceneName)
@@ -43,6 +51,14 @@ public class GameManager : Singleton<GameManager>
                 break;
         }
         OnAfterStateChanged?.Invoke(newState);
+    }
+
+    public void levelComplete()
+    {
+        Debug.Log("Level Completed");
+        PlayerDataManager.currentProf.currentLevel++;
+        invLogic.save();
+        LoadLevel("LevelSelect");
     }
 }
 
