@@ -7,7 +7,7 @@ public class itemLogic : MonoBehaviour
 {
     public InvLogic logic;
     public string itemName;
-
+    public float rotationSpeed;
     void Awake()
     {
         logic = GameObject.Find("Inventory Canvas").GetComponent<InvLogic>();
@@ -23,4 +23,13 @@ public class itemLogic : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if(itemName.Equals("Repair Kit"))
+            transform.Rotate(Vector3.forward*rotationSpeed*Time.deltaTime);
+        if (itemName.Equals("Nitrous Gas"))
+            transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+        if (itemName.Equals("Mod Kit"))
+            transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+    }
 }
