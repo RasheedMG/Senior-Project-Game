@@ -39,7 +39,6 @@ public class PauseMenuManager : MonoBehaviour
         Time.timeScale = Time.timeScale > 0 ? 0 : 1;
         string mapping = cameraController.enabled ? "Player" : "UI";
         inputActions.SwitchCurrentActionMap(mapping);
-        Debug.Log(inputActions.currentActionMap);
     }
 
     public void OnPause(InputAction.CallbackContext context)

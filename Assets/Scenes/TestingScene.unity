@@ -793,13 +793,14 @@ GameObject:
   - component: {fileID: 62015412}
   - component: {fileID: 62015414}
   - component: {fileID: 62015413}
+  - component: {fileID: 62015415}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &62015412
 RectTransform:
   m_ObjectHideFlags: 0
@@ -863,6 +864,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62015411}
   m_CullTransparentMesh: 1
+--- !u!114 &62015415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62015411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205cfb90e6a49344d97a62b4bd187120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: {fileID: 136955072}
+  timeElapsed: {fileID: 1436006481}
+  enemiesDefeated: {fileID: 749484777}
+  currencyGained: {fileID: 1363188069}
 --- !u!1 &63975854
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,14 +1206,13 @@ GameObject:
   - component: {fileID: 68426817}
   - component: {fileID: 68426816}
   - component: {fileID: 68426815}
-  - component: {fileID: 68426818}
   m_Layer: 5
   m_Name: Defeat Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &68426813
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1279,22 +1295,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &68426818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68426812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bb700750ea18a941a2a300bf6f5f10c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: {fileID: 136955072}
-  timeElapsed: {fileID: 738997892}
-  enemiesDefeated: {fileID: 1774011230}
-  currencyGained: {fileID: 366062084}
 --- !u!1 &76726344
 GameObject:
   m_ObjectHideFlags: 0
@@ -4345,7 +4345,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 431813196}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 422470587}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LevelSelect
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &431813196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6356,7 +6368,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 627246233}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 422470587}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LevelSelect
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &627246233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9139,14 +9163,13 @@ GameObject:
   - component: {fileID: 1108430699}
   - component: {fileID: 1108430698}
   - component: {fileID: 1108430697}
-  - component: {fileID: 1108430700}
   m_Layer: 5
   m_Name: Victory Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1108430696
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9229,22 +9252,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1108430700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1108430695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 205cfb90e6a49344d97a62b4bd187120, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: {fileID: 136955072}
-  timeElapsed: {fileID: 1436006481}
-  enemiesDefeated: {fileID: 749484777}
-  currencyGained: {fileID: 1363188069}
 --- !u!1 &1111348415
 GameObject:
   m_ObjectHideFlags: 0
@@ -9899,13 +9906,14 @@ GameObject:
   - component: {fileID: 1231133621}
   - component: {fileID: 1231133623}
   - component: {fileID: 1231133622}
+  - component: {fileID: 1231133624}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1231133621
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9969,6 +9977,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231133620}
   m_CullTransparentMesh: 1
+--- !u!114 &1231133624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231133620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb700750ea18a941a2a300bf6f5f10c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: {fileID: 136955072}
+  timeElapsed: {fileID: 738997892}
+  enemiesDefeated: {fileID: 1774011230}
+  currencyGained: {fileID: 366062084}
 --- !u!1 &1232636886
 GameObject:
   m_ObjectHideFlags: 0
@@ -17110,6 +17134,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 2661745931139705063, guid: e875dc0e68b8c704d94b041022694689, type: 3}
+      propertyPath: DefeatPanel
+      value: 
+      objectReference: {fileID: 1231133620}
+    - target: {fileID: 2661745931139705063, guid: e875dc0e68b8c704d94b041022694689, type: 3}
+      propertyPath: victoryPanel
+      value: 
+      objectReference: {fileID: 62015411}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e875dc0e68b8c704d94b041022694689, type: 3}
 --- !u!4 &948405439475391613

@@ -5,6 +5,7 @@ using TMPro;
 
 public class VictoryLogic : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
     public TextMeshProUGUI timer;
     public TextMeshProUGUI timeElapsed;
     public TextMeshProUGUI enemiesDefeated;
@@ -12,6 +13,7 @@ public class VictoryLogic : MonoBehaviour
     void Start()
     {
         timeElapsed.text = timeElapsed.text + timer.text;
+        
     }
 
 }

@@ -1,15 +1,16 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private InvLogic invLogic;
-    
-    public GameState State;
+    [SerializeField] private GameObject victoryPanel;
+    [SerializeField] private GameObject DefeatPanel;
 
-    public static event Action<GameState> OnBeforeStateChanged;
-    public static event Action<GameState> OnAfterStateChanged;
+    [SerializeField] private CameraController cameraController;
+    [SerializeField] private PlayerInput inputActions;
 
     protected override void Awake()
     {
@@ -27,32 +28,6 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(SceneName);
     }
 
-    public void UpdateGameState(GameState newState)
-    {
-        OnBeforeStateChanged?.Invoke(newState);
-
-        State = newState;
-        switch (newState)
-        {
-            case GameState.Continue:
-                break;
-            case GameState.NewGame:
-                break;
-            case GameState.LoadGame:
-                break;
-            case GameState.Victory:
-                break;
-            case GameState.Defeat:
-                break;
-            case GameState.Quit:
-                Application.Quit();
-                break;
-            default:
-                break;
-        }
-        OnAfterStateChanged?.Invoke(newState);
-    }
-
     public void levelComplete(int level)
     {
         Debug.Log("Level Completed");
@@ -61,7 +36,22 @@ public class GameManager : Singleton<GameManager>
             PlayerDataManager.currentProf.currentLevel++;
         }
         invLogic.save();
-        LoadLevel("LevelSelect");
+        Pause();
+        victoryPanel.SetActive(true);
+    }
+
+    public void LevelLost()
+    {
+        Pause();
+        DefeatPanel.SetActive(true);
+    }
+
+    private void Pause()
+    {
+        cameraController.enabled = !cameraController.enabled;
+        Time.timeScale = Time.timeScale > 0 ? 0 : 1;
+        string mapping = cameraController.enabled ? "Player" : "UI";
+        inputActions.SwitchCurrentActionMap(mapping);
     }
 }
 
