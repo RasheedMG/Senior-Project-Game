@@ -10,6 +10,8 @@ public class GameManager : Singleton<GameManager>
 
     public static event Action<GameState> OnBeforeStateChanged;
     public static event Action<GameState> OnAfterStateChanged;
+    public int enemiesDefeated = 0;
+
 
     protected override void Awake()
     {

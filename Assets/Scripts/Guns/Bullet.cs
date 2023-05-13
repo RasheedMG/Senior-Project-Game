@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace LlamAcademy.Guns
@@ -37,7 +38,12 @@ namespace LlamAcademy.Guns
 
         private void OnCollisionEnter(Collision collision)
         {
+           
+
             OnCollsion?.Invoke(this, collision);
+
+            
+
         }
 
         private void OnDisable()
