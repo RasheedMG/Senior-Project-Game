@@ -7,12 +7,16 @@ public class LevelCompleter : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private BoxCollider collider;
+    [SerializeField] private MeshRenderer meshRenderer;
     
     [SerializeField] private bool requiresLever = false;
 
     private void Start()
     {
-        collider.enabled = !requiresLever;
+        if (requiresLever)
+        {
+            CloseExit();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,10 +30,12 @@ public class LevelCompleter : MonoBehaviour
     public void OpenExit()
     {
         collider.enabled = true;
+        meshRenderer.material.color = Color.green;
     }
 
     public void CloseExit()
     {
         collider.enabled = false;
+        meshRenderer.material.color = Color.red;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,33 @@ public class ItemManager : MonoBehaviour
     
     [SerializeField] private float repairKitHeal = 30f;
     [SerializeField] private float modKitMultiplier = 2f;
+
+    public int currencyCount;
+    public int modKitCount;
+    public int nitrousGasCount;
+    public int repairKitCount;
+
+    private void Awake()
+    {
+        LoadSavedItems();
+    }
+
+    private void LoadSavedItems()
+    {
+        List<SaveItem> items = PlayerDataManager.currentProf.getItems();
+        foreach (SaveItem item in items)
+        {
+            if (item.itemName == "Currency")
+                currencyCount = item.count;
+            else if (item.itemName == "Mod Kit")
+                modKitCount = item.count;
+            else if (item.itemName == "Nitrous Gas")
+                nitrousGasCount = item.count;
+            else if (item.itemName == "Repair Kit")
+                repairKitCount = item.count;
+        }
+    }
+
 
     public void useItem(Item item)
     {

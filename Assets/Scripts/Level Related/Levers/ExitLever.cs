@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using O3DWB;
+using UnityEditor;
 using UnityEngine;
 
 public class ExitLever : Lever
@@ -10,6 +11,6 @@ public class ExitLever : Lever
     public override void Interact()
     {
         levelCompleter.OpenExit();
-        this.enabled = false;
+        Disable();
     }
 }
