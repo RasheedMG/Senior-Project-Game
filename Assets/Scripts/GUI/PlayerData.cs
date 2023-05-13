@@ -9,8 +9,8 @@ public class PlayerData
     public int currency=1000;
     public List<SaveItem> items= new List<SaveItem>();
     public List<SaveUpgrade> upgrades = new List<SaveUpgrade>();
-    public List<SaveWeapon> weapons  = new List<SaveWeapon>();
-    public List<SaveAbility> abilities = new List<SaveAbility>();
+    public List<SaveWeapon> weapons  = new List<SaveWeapon>{new SaveWeapon("Machine Gun", 1000000)};
+    public List<SaveAbility> abilities = new List<SaveAbility> {new SaveAbility("Time Warp"), new SaveAbility("Double Speed")};
     public PlayerData()
     {
 

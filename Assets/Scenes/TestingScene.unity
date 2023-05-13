@@ -1662,6 +1662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1db7730df298a24eb2b58acaaee0420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemManager: {fileID: 2033187377}
   itemPanel: {fileID: 8763535432755318889, guid: 7027fd103c510ef41bcd25c9da3ad2ae, type: 3}
 --- !u!114 &144697139
 MonoBehaviour:
@@ -1984,7 +1985,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-247352
+  m_Name: pb_Mesh-82348
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2505,7 +2506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability1UI:
-    ability: {fileID: 11400000, guid: bcaf9a94f77eacc409d5d314044df657, type: 2}
+    ability: {fileID: 11400000, guid: 070680adeaf8e714eb0b5c2560727439, type: 2}
     cooldownCounter: {fileID: 1000809266}
     cooldownBackgroundImage: {fileID: 1926085619}
     icon: {fileID: 36805228}
@@ -2730,7 +2731,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-247342
+  m_Name: pb_Mesh-82338
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7705,6 +7706,7 @@ Transform:
   - {fileID: 422470585}
   - {fileID: 829707181}
   - {fileID: 1896370264}
+  - {fileID: 2033187378}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9331,7 +9333,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-247466
+  m_Name: pb_Mesh-82414
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11890,7 +11892,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-247256
+  m_Name: pb_Mesh-82252
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12165,6 +12167,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028761194}
   m_CullTransparentMesh: 1
+--- !u!1 &2033187376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2033187378}
+  - component: {fileID: 2033187377}
+  m_Layer: 0
+  m_Name: Item Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2033187377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033187376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b290fbaf74a1d824ba5dcf79e2e61c93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8199253056173351119}
+  speedBoost: {fileID: 352780178}
+  repairKitHeal: 30
+--- !u!4 &2033187378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033187376}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -685.5755, y: -391.0204, z: -6.7913494}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1232636887}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2038369657 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8476923305887540167, guid: 7a8814d714ec5a645bd8fa5eaa24b1ae, type: 3}
