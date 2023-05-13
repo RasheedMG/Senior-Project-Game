@@ -8,6 +8,8 @@ public class LevelCompleter : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private BoxCollider collider;
     [SerializeField] private MeshRenderer meshRenderer;
+
+    [SerializeField] private int currentLevel;
     
     [SerializeField] private bool requiresLever = false;
 
@@ -23,7 +25,7 @@ public class LevelCompleter : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameManager.levelComplete();
+            gameManager.levelComplete(currentLevel);
         }
     }
 

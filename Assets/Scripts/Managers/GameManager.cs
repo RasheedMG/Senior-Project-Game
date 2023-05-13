@@ -53,10 +53,13 @@ public class GameManager : Singleton<GameManager>
         OnAfterStateChanged?.Invoke(newState);
     }
 
-    public void levelComplete()
+    public void levelComplete(int level)
     {
         Debug.Log("Level Completed");
-        PlayerDataManager.currentProf.currentLevel++;
+        if (level == PlayerDataManager.currentProf.currentLevel)
+        {
+            PlayerDataManager.currentProf.currentLevel++;
+        }
         invLogic.save();
         LoadLevel("LevelSelect");
     }
