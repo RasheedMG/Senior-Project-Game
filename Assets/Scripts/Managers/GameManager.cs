@@ -11,6 +11,8 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField] private CameraController cameraController;
     [SerializeField] private PlayerInput inputActions;
+    public int enemiesDefeated = 0;
+
 
     protected override void Awake()
     {

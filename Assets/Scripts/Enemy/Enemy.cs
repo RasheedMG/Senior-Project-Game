@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using LlamAcademy.Guns;
+using LlamAcademy.Guns.Demo;
 public class Enemy : MonoBehaviour
 {
     private NavMeshAgent enemy;
 
-    public GameObject Player;
+    [SerializeField] public GameObject Player;
     public float EnemyDamage;
     public float enemyDistanceRun = 4.0f;
+    [SerializeField] public PlayerGunSelector playergun;
+    [SerializeField] public GameManager manager;
+    [SerializeField]private Rigidbody rig;
+
 
     [SerializeField] public float Health;
 
@@ -27,9 +33,15 @@ public class Enemy : MonoBehaviour
             enemy.SetDestination(newPos);
         }
 
+        rig.velocity = new Vector3(0f,0f,0f); ;
+      
+
+
         if (Health <= 0) 
         {
+            manager.enemiesDefeated++;
             Destroy(gameObject);
+ 
         }
     }
 
@@ -40,6 +52,15 @@ public class Enemy : MonoBehaviour
         {
             player.TakeDamage((EnemyDamage));
         }
+
+        Bullet bullet = col.gameObject.GetComponent<Bullet>();
+
+        if (bullet)
+        {
+            Health -= playergun.ActiveGun.DamageConfig.DamageCurve.constant;
+        }
+
+
     }
 
 
