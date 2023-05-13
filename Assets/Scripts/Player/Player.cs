@@ -62,8 +62,9 @@ public class Player : MonoBehaviour
 
     }
 
-    public void TakeDamage(float amount) 
+    public void TakeDamage(float amount)
     {
+        startRegenerating = false;
         currentRegenerationDelay = shieldRegenerationDelay;
         startRegenerationDelay = true;
 
@@ -119,6 +120,12 @@ public class Player : MonoBehaviour
         {
             PlayerHealthCurrent = PlayerHealthMax;
         }
+        UpdateBars();
+    }
+
+    public void MaximizeShield()
+    {
+        PlayerShieldCurrent = PlayerShieldMax;
         UpdateBars();
     }
 
