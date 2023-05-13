@@ -41,5 +41,13 @@ public abstract class Lever : MonoBehaviour
         }
     }
 
+    protected void Disable()
+    {
+        playerIsWithinRange = false;
+        interactHUDElement.SetActive(false);
+        collider.enabled = false;
+        this.enabled = false;
+    }
+
     public virtual void Interact() { }
 }
