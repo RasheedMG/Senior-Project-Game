@@ -10,7 +10,7 @@ public abstract class Lever : MonoBehaviour
     [SerializeField] private GameObject interactHUDElement;
     [SerializeField] private LeverManager leverManager;
 
-    private bool playerIsWithinRange = false;
+    public bool playerIsWithinRange = false;
 
     private void OnEnable()
     {
@@ -20,7 +20,10 @@ public abstract class Lever : MonoBehaviour
     private void OnDisable()
     {
         leverManager.OnLeverTrigger -= Interact;
-        interactHUDElement.SetActive(false);
+        if (interactHUDElement != null)
+        {
+            interactHUDElement.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

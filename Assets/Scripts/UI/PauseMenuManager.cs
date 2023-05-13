@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PauseMenuManager : MonoBehaviour
 {
     [SerializeField] CameraController cameraController;
 
     [SerializeField] private AbilitySelection abilitySelection;
+    
+    [SerializeField] private PlayerInput inputActions;
     
     CanvasGroup pauseMenu;
 
@@ -30,10 +33,21 @@ public class PauseMenuManager : MonoBehaviour
 
     public void ToggleMenuVisibility()
     {
-        cameraController.enabled = cameraController.enabled ? false : true;
+        cameraController.enabled = !cameraController.enabled;
         pauseMenu.alpha = pauseMenu.alpha > 0 ? 0 : 1;
-        pauseMenu.blocksRaycasts = pauseMenu.blocksRaycasts ? false : true;
+        pauseMenu.blocksRaycasts = !pauseMenu.blocksRaycasts;
         Time.timeScale = Time.timeScale > 0 ? 0 : 1;
+        string mapping = cameraController.enabled ? "Player" : "UI";
+        inputActions.SwitchCurrentActionMap(mapping);
+        Debug.Log(inputActions.currentActionMap);
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            ToggleMenuVisibility();
+        }
     }
 
     public void BackToMainMenu()
@@ -42,11 +56,6 @@ public class PauseMenuManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void OnPauseMenu()
-    {
-        ToggleMenuVisibility();
-    }
-    
     public void OnPickAbilitiesButtonClick()
     {
         abilitySelection.ShowAbilitySelectionUI();

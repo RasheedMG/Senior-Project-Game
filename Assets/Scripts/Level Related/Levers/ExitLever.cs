@@ -10,6 +10,10 @@ public class ExitLever : Lever
 
     public override void Interact()
     {
+        if (!playerIsWithinRange)
+            return;
+        
+        base.Interact();
         levelCompleter.OpenExit();
         Disable();
     }

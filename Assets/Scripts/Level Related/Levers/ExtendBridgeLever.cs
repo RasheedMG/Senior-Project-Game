@@ -10,6 +10,8 @@ public class ExtendBridgeLever : Lever
 
     public override void Interact()
     {
+        if (!playerIsWithinRange)
+            return;
         StartCoroutine(ExtendAndRetractBridge());
     }
 
