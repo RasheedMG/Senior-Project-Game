@@ -22,7 +22,7 @@ public class InvItemDisplay : MonoBehaviour
         string path = "Items/" + gameObject.name;
         item = Resources.Load<Item>(path);
         Icon.sprite = item.icon;
-        gameObject.tag = "Item";
+        //gameObject.tag = "Item";
         Button button = GetComponent<Button>();
         button.onClick.AddListener(() => useItem());
         if (!gameObject.name.Equals("Currency"))

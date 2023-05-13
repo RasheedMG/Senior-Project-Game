@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d32de317a6f404db820f6d770516a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invLogic: {fileID: 0}
   State: 0
 --- !u!114 &937479343489126049
 MonoBehaviour:
@@ -248,7 +249,19 @@ MonoBehaviour:
     m_ActionId: b4ec6161-0308-4f5f-92e1-67432f182219
     m_ActionName: UI/RightClick[/Mouse/rightButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LeverManager, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 23250bff-48c2-4775-bbdf-2e7a53035ea1
     m_ActionName: Player/Interact[/Keyboard/f]
   - m_PersistentCalls:
