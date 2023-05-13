@@ -5,6 +5,7 @@ using TMPro;
 
 public class ItemPanelDisplay : MonoBehaviour
 {
+    [SerializeField] public ItemManager itemManager;
     public GameObject itemPanel;
     void Awake()
     {

@@ -16,7 +16,7 @@ MonoBehaviour:
   Type: 4
   Name: Rocket Launcher
   icon: {fileID: 21300032, guid: 5acb27b603af6d44ea6113c4b7b15385, type: 3}
-  ModelPrefab: {fileID: 1176637448975649763, guid: 71173d289740c9040aed0ed663b5f7ef, type: 3}
+  ModelPrefab: {fileID: 371691125186433044, guid: 80ac94fe3e7310246b12deb9f2e6e3b7, type: 3}
   SpawnPoint: {x: 0, y: 5, z: 0}
   SpawnRotation: {x: 0, y: 0, z: 0}
   DamageConfig: {fileID: 11400000, guid: 9a163af148141da439a3e94bbc26318c, type: 2}

@@ -61,7 +61,7 @@ public class Turret : MonoBehaviour
 
 
 
-        if (Physics.Raycast(origin,direction, out hit, Mathf.Infinity))
+        if (Physics.Raycast(origin,direction, out hit, Mathf.Infinity, layerMask))
         {
             if (hit.collider.tag == tag)
             {
@@ -93,11 +93,19 @@ public class Turret : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        currentState.OnTriggerEnter(other);
+       if(other.GetComponentInParent<Player>() != null)
+        {
+            currentState.OnTriggerEnter(other);
+        }
+   
     }
 
     private void OnTriggerExit(Collider other)
     {
-        currentState.OnTriggerExit(other);
+        if (other.GetComponentInParent<Player>() != null)
+        {
+            currentState.OnTriggerExit(other);
+        }
+           
     }
 }

@@ -146,6 +146,11 @@ public class SpeedBoost : MonoBehaviour
         nitroAudioSource.Stop();
     }
 
+    public void FillFuel()
+    {
+        currentFuel = maxFuel;
+    }
+
     private void EnableBoostersEffect()
     {
         rightNitrous.SetActive(true);

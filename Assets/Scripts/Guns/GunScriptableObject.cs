@@ -70,6 +70,16 @@ namespace LlamAcademy.Guns
         public void RecursiveMeshControl(bool enable)
         {
             var meshrenderersgun = Model.GetComponentsInChildren<MeshRenderer>();
+
+            if(Model.GetComponentsInChildren<SkinnedMeshRenderer>() != null)
+            {
+                var skinnedmeshrenderersgun = Model.GetComponentsInChildren<SkinnedMeshRenderer>();
+                foreach (var mesh in skinnedmeshrenderersgun)
+                {
+                    mesh.enabled = enable;
+                }
+            }
+
             foreach (var mesh in meshrenderersgun)
             {
                 mesh.enabled = enable;
