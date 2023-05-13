@@ -13098,6 +13098,7 @@ MonoBehaviour:
   player: {fileID: 8199253056173351119}
   speedBoost: {fileID: 352780178}
   repairKitHeal: 30
+  modKitMultiplier: 2
 --- !u!4 &2033187378
 Transform:
   m_ObjectHideFlags: 0
