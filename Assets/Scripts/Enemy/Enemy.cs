@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public PlayerGunSelector playergun;
     [SerializeField] public GameManager manager;
     [SerializeField]private Rigidbody rig;
-
+    [SerializeField] public GameObject onDeathExplosion;
 
     [SerializeField] public float Health;
 
@@ -36,13 +36,6 @@ public class Enemy : MonoBehaviour
         rig.velocity = new Vector3(0f,0f,0f); ;
       
 
-
-        if (Health <= 0) 
-        {
-            manager.enemiesDefeated++;
-            Destroy(gameObject);
- 
-        }
     }
 
     void OnCollisionEnter(Collision col)
@@ -58,6 +51,16 @@ public class Enemy : MonoBehaviour
         if (bullet)
         {
             Health -= playergun.ActiveGun.DamageConfig.DamageCurve.constant;
+            if (Health <= 0)
+            {
+                manager.enemiesDefeated++;
+                var explosion = Instantiate(onDeathExplosion, transform.position, Quaternion.identity);
+                Destroy(explosion, 1f);
+
+                Destroy(gameObject);
+
+
+            }
         }
 
 
