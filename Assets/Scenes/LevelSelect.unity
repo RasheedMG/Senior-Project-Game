@@ -10929,6 +10929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vendorCanvas: {fileID: 24223970}
+  achievementPopup: {fileID: 8913588322273689010, guid: 2e8a5af58e818e44995008e95e39b94c, type: 3}
 --- !u!114 &702998310
 MonoBehaviour:
   m_ObjectHideFlags: 0
