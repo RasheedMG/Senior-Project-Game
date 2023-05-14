@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf304cc49f7e38c438d288d69c1d38d8, type: 3}
   m_Name: RailGun_Audio
   m_EditorClassIdentifier: 
-  Volume: 0.058
+  Volume: 0.261
   FireClips:
-  - {fileID: 8300000, guid: 12d38a42e07655a49a1d83be89a784b6, type: 3}
+  - {fileID: 8300000, guid: 524b61031b4806d42a19ef7283b63092, type: 3}
   EmptyClip: {fileID: 8300000, guid: 7e42765d96f51aa4790655097b812c60, type: 3}
   ReloadClip: {fileID: 8300000, guid: cc5714dccbdf0614b9d0d73b9ce93526, type: 3}
   LastBulletClip: {fileID: 8300000, guid: 12d38a42e07655a49a1d83be89a784b6, type: 3}

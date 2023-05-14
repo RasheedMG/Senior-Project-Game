@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Volume: 0.055
   FireClips:
-  - {fileID: 8300000, guid: 7ecc48eb64bb9ba49ba77328b362a5e7, type: 3}
+  - {fileID: 8300000, guid: 45470a5c10ddced488b2def30c26a26e, type: 3}
   EmptyClip: {fileID: 8300000, guid: 7e42765d96f51aa4790655097b812c60, type: 3}
   ReloadClip: {fileID: 8300000, guid: 8c1d6248074b5454c8587f7744574d0f, type: 3}
   LastBulletClip: {fileID: 8300000, guid: 7ecc48eb64bb9ba49ba77328b362a5e7, type: 3}
