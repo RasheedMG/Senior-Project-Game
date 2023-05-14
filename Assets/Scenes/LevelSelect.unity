@@ -14171,7 +14171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finished: {fileID: 964506491}
   locked: {fileID: 88347878}
-  level: TestingScene
+  level: Level 2
   levelNum: 2
 --- !u!1 &913672888
 GameObject:
@@ -26892,7 +26892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finished: {fileID: 702823907}
-  level: TestingScene
+  level: Level 1
 --- !u!1 &2018337709
 GameObject:
   m_ObjectHideFlags: 0
