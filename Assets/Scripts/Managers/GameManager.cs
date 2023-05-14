@@ -37,6 +37,7 @@ public class GameManager : Singleton<GameManager>
         {
             PlayerDataManager.currentProf.currentLevel++;
         }
+        PlayerDataManager.currentProf.currency += enemiesDefeated * 50;
         invLogic.save();
         TogglePause();
         victoryPanel.SetActive(true);
