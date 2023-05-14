@@ -13,7 +13,8 @@ public class VictoryLogic : MonoBehaviour
     void Start()
     {
         timeElapsed.text = timeElapsed.text + timer.text;
-        
+        enemiesDefeated.text += gameManager.enemiesDefeated.ToString();
+        currencyGained.text += (gameManager.enemiesDefeated * 50f).ToString();
     }
 
 }

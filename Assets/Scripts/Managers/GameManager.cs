@@ -38,17 +38,17 @@ public class GameManager : Singleton<GameManager>
             PlayerDataManager.currentProf.currentLevel++;
         }
         invLogic.save();
-        Pause();
+        TogglePause();
         victoryPanel.SetActive(true);
     }
 
     public void LevelLost()
     {
-        Pause();
+        TogglePause();
         DefeatPanel.SetActive(true);
     }
 
-    private void Pause()
+    public void TogglePause()
     {
         cameraController.enabled = !cameraController.enabled;
         Time.timeScale = Time.timeScale > 0 ? 0 : 1;

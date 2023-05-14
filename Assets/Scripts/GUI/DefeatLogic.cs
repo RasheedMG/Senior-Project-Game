@@ -5,6 +5,7 @@ using TMPro;
 
 public class DefeatLogic : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
     public TextMeshProUGUI timer;
     public TextMeshProUGUI timeElapsed;
     public TextMeshProUGUI enemiesDefeated;
@@ -12,6 +13,8 @@ public class DefeatLogic : MonoBehaviour
     void Start()
     {
         timeElapsed.text = timeElapsed.text + timer.text;
+        enemiesDefeated.text += gameManager.enemiesDefeated.ToString();
+        currencyGained.text += 0.ToString();
     }
 
 }

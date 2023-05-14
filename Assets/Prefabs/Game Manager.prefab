@@ -48,7 +48,9 @@ MonoBehaviour:
   invLogic: {fileID: 0}
   victoryPanel: {fileID: 0}
   DefeatPanel: {fileID: 0}
-  State: 0
+  cameraController: {fileID: 0}
+  inputActions: {fileID: 937479343489126049}
+  enemiesDefeated: 0
 --- !u!114 &937479343489126049
 MonoBehaviour:
   m_ObjectHideFlags: 0

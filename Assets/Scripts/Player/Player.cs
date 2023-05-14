@@ -143,5 +143,6 @@ public class Player : MonoBehaviour
 
         var explosion = Instantiate(onDeathExplosion, transform.position, Quaternion.identity);
         Destroy(explosion, 1f);
+        GameManager.Instance.LevelLost();
     }
 }
