@@ -19,17 +19,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.010151565
       value: 0.09757148
-      inSlope: -0.0929317
-      outSlope: -0.0929317
+      inSlope: -0.2920362
+      outSlope: -0.2920362
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.0100403
-      value: 0.004650116
-      inSlope: -0.0929317
-      outSlope: -0.0929317
+      time: 0.36062622
+      value: -0.0047798157
+      inSlope: -0.2920362
+      outSlope: -0.2920362
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -37,7 +37,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  Duration: 0.5
+  Duration: 0.3
   MinVertexDistance: 0.1
   Color:
     serializedVersion: 2
@@ -68,5 +68,5 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  MissDistance: 100
+  MissDistance: 500
   SimulationSpeed: 100
