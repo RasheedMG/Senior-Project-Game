@@ -9,13 +9,13 @@ public class LevelLogic : MonoBehaviour, IPointerClickHandler
     public GameObject locked;
     public string level;
     public int levelNum=0;
-    private int currentLevel = PlayerDataManager.currentProf.currentLevel;
+    //private int currentLevel = PlayerDataManager.currentProf.currentLevel;
 
     void Start()
     {
-        if (currentLevel >= levelNum)
+        if (PlayerDataManager.currentProf.currentLevel >= levelNum)
             locked.SetActive(false);
-        if (currentLevel > levelNum)
+        if (PlayerDataManager.currentProf.currentLevel > levelNum)
             finished.SetActive(true);
     }
 
